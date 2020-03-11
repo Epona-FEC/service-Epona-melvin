@@ -1,17 +1,32 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
+  "name": "service-epona-melvin",
+  "description": "Reviews Service",
   "author": "",
-  "license": "",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "sequelize": "^5.21.5"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-  }
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eponaaaa/service-Epona-melvin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Eponaaaa/service-Epona-melvin/issues"
+  },
+  "homepage": "https://github.com/Eponaaaa/service-Epona-melvin#readme"
 }
