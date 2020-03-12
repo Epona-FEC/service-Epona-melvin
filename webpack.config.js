@@ -2,21 +2,24 @@ const path = require('path');
 
 module.exports = {
 
-  entry:'./src/index.js',
-  loader: 'babel',
+  entry: './client/src/index.jsx',
   output: {
-    filename: 'build.js'
-    path: path.resolve(__dirname, 'dist'),
+    filename: 'build.js',
+    path: path.resolve(__dirname, './client/dist'),
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
-        }
-      }
-    ]
-  }
-}
+        test: /\.(js|jsx)$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
