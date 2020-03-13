@@ -50,7 +50,7 @@ For macOS : MySQL [Docs](https://dev.mysql.com/doc/mysql-osx-excerpt/5.7/en/osx-
     ```sh
     service mysql start
     ```
-    - Or: ```mysql-server start
+    - Or: ```mysql-server start```
 
 ## Development
 
@@ -62,9 +62,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
-
-
-
-
-
