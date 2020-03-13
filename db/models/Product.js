@@ -15,10 +15,6 @@ module.exports = (sequelize, {
       type: DATE,
       default: NOW,
     },
-    shopowner_id: {
-      type: INTEGER,
-      allowNull: false,
-    },
     favorites: {
       type: INTEGER,
     },

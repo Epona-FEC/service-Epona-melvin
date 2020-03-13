@@ -16,14 +16,13 @@ module.exports = (sequelize, Sequelize) => {
   Shop = Shop(sequelize, Sequelize);
   ReviewPhoto = ReviewPhoto(sequelize, Sequelize);
   Review = Review(sequelize, Sequelize);
-  Review.belongsTo(ReviewPhoto);
   Review.belongsTo(Shop);
   Review.belongsTo(Product);
   Review.belongsTo(Reviewer);
-  ReviewPhoto.hasOne(Review, { foreignKey: 'photoId' });
-  Shop.hasMany(Review, { foreignKey: 'review_id' });
-  ReviewPhoto.hasOne(Review);
+  Shop.hasMany(Review);
+  ReviewPhoto.belongsTo(Review);
   Reviewer.hasMany(Review);
   Product.belongsTo(Shop);
-  Shop.hasMany(Product, { foreignKey: 'shop_id' });
+  Product.hasOne(Review);
+  Shop.hasMany(Product);
 };
