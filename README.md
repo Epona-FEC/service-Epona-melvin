@@ -1,10 +1,10 @@
 # Project Name
 
-> Project description
+> Estsy Reviews Service
 
 ## Related Projects
 
-  - https://github.com/Eponaaaa/repo
+  - https://github.com/Eponaaaa
 
 ## Table of Contents
 
