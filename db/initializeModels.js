@@ -1,7 +1,7 @@
 let Reviewer = require('./models/Reviewer');
 let Product = require('./models/Product');
 let ReviewPhoto = require('./models/ReviewPhotos');
-let ShopOwner = require('./models/ShopOwner');
+let Shop = require('./models/Shop');
 let Review = require('./models/Review');
 
 
@@ -13,17 +13,17 @@ let Review = require('./models/Review');
 module.exports = (sequelize, Sequelize) => {
   Reviewer = Reviewer(sequelize, Sequelize);
   Product = Product(sequelize, Sequelize);
-  ShopOwner = ShopOwner(sequelize, Sequelize);
+  Shop = Shop(sequelize, Sequelize);
   ReviewPhoto = ReviewPhoto(sequelize, Sequelize);
   Review = Review(sequelize, Sequelize);
-  Review.hasOne(ReviewPhoto, { foreignKey: 'photo_id' });
-  Review.hasOne(ShopOwner, { foreignKey: 'shopowner_id' });
-  Review.hasOne(Product, { foreignKey: 'product_id' });
-  Review.hasOne(Reviewer, { foreignKey: 'author_id' });
-  ReviewPhoto.belongsToMany(Review, { through: 'ProductReviews' });
-  ShopOwner.belongsToMany(Review, { through: 'ShopOwnerReviews' });
-  ReviewPhoto.belongsTo(Review);
-  Reviewer.belongsTo(Review);
-  Product.hasOne(Product, { foreignKey: 'shopowner_id' });
-  ShopOwner.belongsToMany(Product, { through: 'ShopOwnerProducts' });
+  Review.belongsTo(ReviewPhoto);
+  Review.belongsTo(Shop);
+  Review.belongsTo(Product);
+  Review.belongsTo(Reviewer);
+  ReviewPhoto.hasOne(Review, { foreignKey: 'photoId' });
+  Shop.hasMany(Review, { foreignKey: 'review_id' });
+  ReviewPhoto.hasOne(Review);
+  Reviewer.hasMany(Review);
+  Product.belongsTo(Shop);
+  Shop.hasMany(Product, { foreignKey: 'shop_id' });
 };

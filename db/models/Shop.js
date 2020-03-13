@@ -1,13 +1,13 @@
 module.exports = (sequelize, {
   INTEGER, STRING,
 }) => {
-  const ShopOwner = sequelize.define('ShopOwner', {
+  const Shop = sequelize.define('Shop', {
     id: {
       type: INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: STRING,
+    name: { type: STRING },
   });
-  return ShopOwner;
+  return Shop;
 };

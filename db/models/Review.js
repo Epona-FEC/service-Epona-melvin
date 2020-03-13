@@ -12,10 +12,13 @@ module.exports = (sequelize, Sequelize) => {
     body: {
       type: Sequelize.STRING,
     },
-    author_id: {
+    reviewer_id: {
       type: Sequelize.INTEGER,
     },
     product_id: {
+      type: Sequelize.INTEGER,
+    },
+    shop_id: {
       type: Sequelize.INTEGER,
     },
   });
