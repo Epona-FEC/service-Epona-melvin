@@ -8,6 +8,12 @@ module.exports = (sequelize, Sequelize) => {
     body: {
       type: Sequelize.TEXT,
     },
+<<<<<<< HEAD
+=======
+    score: {
+      type: Sequelize.INTEGER,
+    },
+>>>>>>> c5c09e74f84665dc639773f86cbc6210eb06c897
   });
   return Review;
 };
