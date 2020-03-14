@@ -8,6 +8,9 @@ module.exports = (sequelize, Sequelize) => {
     body: {
       type: Sequelize.TEXT,
     },
+    score: {
+      type: Sequelize.INTEGER,
+    },
   });
   return Review;
 };
