@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Review Should shallow 1`] = `
+<div>
+  <button
+    className="reviewer-name"
+    onClick={[Function]}
+    type="button"
+  >
+    Melvin
+  </button>
+  <div
+    className="review-score"
+  >
+    5
+  </div>
+  <em
+    className="review-date"
+  >
+    <Component />
+  </em>
+  <div
+    className="review-body"
+  >
+    This is default text
+    <div>
+      <img
+        alt="Review stuff"
+        src="http:"
+      />
+    </div>
+  </div>
+  <div>
+    <span>
+      Purchased item:
+    </span>
+    <div
+      className="review-product-data"
+    >
+      <a
+        href="/listing/1"
+      >
+        Test Data
+      </a>
+    </div>
+  </div>
+</div>
+`;
