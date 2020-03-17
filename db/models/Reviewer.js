@@ -6,6 +6,7 @@ module.exports = (sequelize, { INTEGER, STRING }) => {
       autoIncrement: true,
     },
     name: STRING,
+    photoUrl: STRING,
   });
   return Reviewer;
 };
