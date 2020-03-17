@@ -7,10 +7,7 @@ for (let i = 0; i < 100; i += 1) {
   const currentReview = {};
   const isShop = (productOrShop() === 1);
   currentReview.body = lorem.paragraph();
-<<<<<<< HEAD
-=======
-  currentReview.score = random.number(5);
->>>>>>> c5c09e74f84665dc639773f86cbc6210eb06c897
+  currentReview.score = random.number({ min: 1, max: 5 });
   currentReview.ShopId = (isShop) ? oneToOneHundred() : null;
   currentReview.ProductId = (!isShop) ? oneToOneHundred() : null;
   currentReview.ReviewerId = oneToOneHundred();

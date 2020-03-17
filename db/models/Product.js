@@ -18,6 +18,7 @@ module.exports = (sequelize, {
     favorites: {
       type: INTEGER,
     },
+    photoUrl: STRING,
   }, {
     timestamps: false,
   });
