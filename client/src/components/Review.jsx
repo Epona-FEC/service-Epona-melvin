@@ -1,59 +1,77 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Review = ({
-  reviewerName, reviewDate, reviewScore, reviewBody, photoUrl, photoDescription, product, productId,
-}) => (
-  <div>
-    {/* Icon */}
-    <button className='reviewer-name' onClick={() => console.log('hello')} type='button'>
-      { reviewerName }
-    </button>
-
-    <em className='review-date'>{ reviewDate.toString() }</em>
-    <div className='review-score'>
-      { reviewScore }
-    </div>
-    <div className='review-body'>
-      {reviewBody}
-      <div>
-        {/* If photo exists create img tag */}
-        <img src={photoUrl} alt={photoDescription} />
-      </div>
-    </div>
+const Review = ({ product, review, reviewer }) => {
+  const { name, id } = product;
+  const { avatar, username } = reviewer;
+  const { date, score, body } = review;
+  return (
     <div>
-      {/* Shopowner Div HERE */}
-      <span>Purchased item:</span>
-      <div className='review-product-data'>
-        {/* Image for product purchased here */}
-        <a href={`/listing/${productId}`}>
-          { product }
-        </a>
+      <img src={avatar} alt={`${username}'s avatar`} />
+      <a className='reviewer-name' href={`/users/${username}`}>
+        { username }
+      </a>
+
+      <em className='review-date'>{ date.toString() }</em>
+      <div className='review-score'>
+        { score }
+      </div>
+      <div className='review-body'>
+        {body}
+        <div>
+          <img src={review.photoUrl} alt={`${username} added a photo of their purchase`} />
+        </div>
+      </div>
+      <div>
+        {/* Shopowner Div HERE  TODO: REPLY */}
+        <span>Purchased item:</span>
+        <div className='review-product-data'>
+          <img src={product.photoUrl} alt={name} />
+          <a href={`/listing/${id}`}>
+            { name }
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-);
-
+  );
+};
 Review.propTypes = {
-  reviewerName: PropTypes.string,
-  reviewDate: PropTypes.instanceOf(Date),
-  reviewScore: PropTypes.number,
-  reviewBody: PropTypes.string,
-  photoUrl: PropTypes.string,
-  photoDescription: PropTypes.string,
-  product: PropTypes.string,
-  productId: PropTypes.number,
+
+  product: PropTypes.shape({
+    name: PropTypes.string,
+    id: PropTypes.number,
+    photoUrl: PropTypes.string,
+  }),
+  review: PropTypes.shape({
+    date: PropTypes.instanceOf(Date),
+    score: PropTypes.number,
+    body: PropTypes.string,
+    photoUrl: PropTypes.string,
+  }),
+  reviewer: PropTypes.shape({
+    avatar: PropTypes.string,
+    username: PropTypes.string,
+  }),
 };
 
 Review.defaultProps = {
-  reviewerName: 'Melvin',
-  reviewDate: new Date(),
-  reviewScore: 5,
-  reviewBody: 'This is default text',
-  photoUrl: 'http:',
-  photoDescription: 'Review stuff',
-  product: 'Test Data',
-  productId: 1,
+  product: {
+    name: 'A Cool Product',
+    id: 1,
+    photoUrl: 'https://picsum.photos/id/237/200/300',
+  },
+  review: {
+    date: new Date(),
+    score: 5,
+    body: 'This a test',
+    photoUrl: 'https://picsum.photos/id/237/200/300',
+  },
+  reviewer: {
+    avatar: 'http://www.gravatar.com/avatar/?d=identicon',
+    username: 'Melvin',
+  },
+
 };
 
 export default Review;
