@@ -18,30 +18,23 @@ describe('Review', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it(' has default props', () => {
+  it('Should see props when defined in component, has default props', () => {
     const objData = {
-      product: {
-        name: 'Test Data',
-        id: 1,
-        photoUrl: 'https://picsum.photos/id/237/200/300',
-      },
-      review: {
-        date: new Date('Tue Mar 17 2020 16:08:19 GMT-0700 (Pacific Daylight Time)'),
-        score: 5,
-        body: 'This a test',
-        photoUrl: 'https://picsum.photos/id/237/200/300',
-      },
-      reviewer: {
-        avatar: 'http://www.gravatar.com/avatar/?d=identicon',
-        username: 'Melvin',
-      },
+      reviewDate: new Date(),
+      reviewScore: 5,
+      photoUrl: 'https://picsum.photos/200/300',
+      reviewBody: 'This is test text',
+      photoDescription: 'This user added a phot of their purchase',
     };
 
+    wrapper.setProps(objData);
+
     expect(wrapper.find('.reviewer-name').props().children).toEqual('Melvin');
-    expect(wrapper.find('.review-score').props().children).toEqual(objData.review.score);
-    expect(wrapper.find('.review-date').props().children).toEqual(objData.review.date.toString());
-    expect(wrapper.find('.product-icon').props().src).toEqual(objData.product.photoUrl);
+    expect(wrapper.find('.review-score').props().children).toEqual(objData.reviewScore);
+    expect(wrapper.find('.review-date').props().children).toEqual(objData.reviewDate);
+    expect(wrapper.find('img').props().src).toEqual(objData.photoUrl);
+    expect(wrapper.find('img').props().alt).toEqual(objData.photoDescription);
     expect(wrapper.find('.review-product-data a').props().href).toEqual('/listing/1');
-    expect(wrapper.find('.review-product-data a').props().children).toEqual('A Cool Product');
+    expect(wrapper.find('.review-product-data a').props().children).toEqual('Test Data');
   });
 });
