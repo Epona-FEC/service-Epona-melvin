@@ -27,7 +27,7 @@ const Review = ({ product, review, reviewer }) => {
         {/* Shopowner Div HERE  TODO: REPLY */}
         <span>Purchased item:</span>
         <div className='review-product-data'>
-          <img src={product.photoUrl} alt={name} />
+          <img className='product-icon' src={product.photoUrl} alt={name} />
           <a href={`/listing/${id}`}>
             { name }
           </a>
@@ -62,7 +62,7 @@ Review.defaultProps = {
     photoUrl: 'https://picsum.photos/id/237/200/300',
   },
   review: {
-    date: new Date(),
+    date: new Date('Tue Mar 17 2020 16:08:19 GMT-0700 (Pacific Daylight Time)'),
     score: 5,
     body: 'This a test',
     photoUrl: 'https://picsum.photos/id/237/200/300',
