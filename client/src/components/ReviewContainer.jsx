@@ -1,10 +1,11 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import PropTypes from 'prop-types';
-import sampleData from '../../sampleData';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 
+import ReviewPhotos from './ReviewPhotos.jsx';
 import Review from './Review.jsx';
-
+import 'pure-react-carousel/dist/react-carousel.es.css';import sampleData from '../../sampleData';
 class ReviewContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,24 @@ class ReviewContainer extends React.Component {
       seeMoreReviewsIsClicked: false,
       shopReviews: [1, 2, 3, 4, 5, 7, 8, 20],
       selectedReviews: 'product',
+      reviewPhotos: [
+        {
+          url: 'https://source.unsplash.com/random/200x200',
+          description: 'Purchase of a customer',
+        },
+        {
+          url: 'https://source.unsplash.com/random/200x200',
+          description: 'Purchase of a customer',
+        },
+        {
+          url: 'https://source.unsplash.com/random/200x200',
+          description: 'Purchase of a customer',
+        },
+        {
+          url: 'https://source.unsplash.com/random/200x200',
+          description: 'Purchase of a customer',
+        },
+      ],
     };
     this.getFirstFourReviews = this.getFirstFourReviews.bind(this);
   }
@@ -51,6 +70,20 @@ class ReviewContainer extends React.Component {
     return rest;
   }
 
+  /**
+   * Gets the four photos from reviewPhotos state array
+   * @param {integer} index The starting position where iterating through the reviewPhotos
+   *
+   */
+  getFourPhotos(index) {
+    const photos = [];
+    const { reviewPhotos } = this.state;
+    for (let i = index; i < index + 4; i += 1) {
+      photos.push(reviewPhotos[i]);
+    }
+    return photos;
+  }
+
   moreReviewsClick() {
     this.setState({ seeMoreReviewsIsClicked: true });
   }
@@ -58,7 +91,7 @@ class ReviewContainer extends React.Component {
   render() {
     const { productReviewTotal, shopReviewTotal } = this.props;
     const {
-      productReviews, shopReviews, selectedReviews, seeMoreReviewsIsClicked,
+      productReviews, shopReviews, selectedReviews, seeMoreReviewsIsClicked, reviewPhotos,
     } = this.state;
 
     return (
@@ -75,8 +108,6 @@ class ReviewContainer extends React.Component {
             <span>{shopReviewTotal}</span>
           </button>
         </div>
-        {/* See More Reviews User story TODO: When see more reviews is clicked */}
-        {/* Up to 20 reviews are shown, if less than 20 it will show all of the reviews */}
         {(selectedReviews === 'product') ? [
           <Reviews getReviews={this.getFirstFourReviews} reviews={productReviews} />,
           (productReviews.length > 4 && !seeMoreReviewsIsClicked)
@@ -90,6 +121,19 @@ class ReviewContainer extends React.Component {
           (seeMoreReviewsIsClicked)
             ? <Reviews getReviews={this.getRestOfReviews} reviews={shopReviews} /> : null,
         ]}
+        <CarouselProvider
+          naturalSlideWidth={1}
+          naturalSlideHeight={1}
+          totalSlides={Math.floor(reviewPhotos.length / 4)}
+        >
+          <Slider>
+            <Slide index={0}>
+              <ReviewPhotos photos={this.getFourPhotos(0)} />
+            </Slide>
+          </Slider>
+          <ButtonBack>Back</ButtonBack>
+          <ButtonNext>Next</ButtonNext>
+        </CarouselProvider>
       </div>
     );
   }
