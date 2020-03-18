@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductStats Should shallow 1`] = `
+<div>
+  <div
+    className="shop-rating-picture"
+  >
+    <em>
+      Shop Rating
+    </em>
+    5
+  </div>
+  <div
+    className="total-shop-reviews"
+  >
+    <em>
+      Total shop reviews
+    </em>
+    323
+  </div>
+</div>
+`;
