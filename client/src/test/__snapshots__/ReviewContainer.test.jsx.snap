@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewContainer Should shallow, intial sampledata 1`] = `
+<div
+  className="review-container"
+>
+  <div
+    className="review-tabs"
+  >
+    <button
+      className="product-review-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Reviews for this item
+      <span>
+         
+        25
+      </span>
+    </button>
+    <button
+      className="shop-review-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Reviews for this shop
+      <span>
+        50
+      </span>
+    </button>
+  </div>
+  <Review
+    product={
+      Object {
+        "id": 1,
+        "name": "Product #1",
+        "photoUrl": "https://loremflickr.com/50/50",
+      }
+    }
+    review={
+      Object {
+        "body": "This a test",
+        "date": 2020-03-17T23:08:19.000Z,
+        "photoUrl": "https://source.unsplash.com/random/200x200",
+        "score": 5,
+      }
+    }
+    reviewer={
+      Object {
+        "avatar": "https://i.pravatar.cc/50",
+        "username": "Albert",
+      }
+    }
+  />
+  <Review
+    product={
+      Object {
+        "id": 2,
+        "name": "Product #2",
+        "photoUrl": "https://loremflickr.com/50/50",
+      }
+    }
+    review={
+      Object {
+        "body": "This a test",
+        "date": 2020-03-17T23:08:19.000Z,
+        "photoUrl": "https://source.unsplash.com/random/200x200",
+        "score": 5,
+      }
+    }
+    reviewer={
+      Object {
+        "avatar": "https://i.pravatar.cc/50",
+        "username": "Joe",
+      }
+    }
+  />
+  <Review
+    product={
+      Object {
+        "id": 3,
+        "name": "Product #3",
+        "photoUrl": "https://loremflickr.com/50/50",
+      }
+    }
+    review={
+      Object {
+        "body": "This a test",
+        "date": 2020-03-17T23:08:19.000Z,
+        "photoUrl": "https://source.unsplash.com/random/200x200",
+        "score": 5,
+      }
+    }
+    reviewer={
+      Object {
+        "avatar": "https://i.pravatar.cc/50",
+        "username": "Ro",
+      }
+    }
+  />
+  <Review
+    product={
+      Object {
+        "id": 3,
+        "name": "Product #4",
+        "photoUrl": "https://loremflickr.com/50/50",
+      }
+    }
+    review={
+      Object {
+        "body": "This a test",
+        "date": 2020-03-17T23:08:19.000Z,
+        "photoUrl": "https://source.unsplash.com/random/200x200",
+        "score": 5,
+      }
+    }
+    reviewer={
+      Object {
+        "avatar": "https://i.pravatar.cc/50",
+        "username": "Po",
+      }
+    }
+  />
+  <button
+    className="more-reviews-button"
+    type="button"
+  >
+    See More
+  </button>
+</div>
+`;

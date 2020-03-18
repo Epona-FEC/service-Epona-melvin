@@ -9,17 +9,18 @@ class ReviewContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewArray: sampleData,
+      productReviews: sampleData,
+      shopReviews: [],
+      selectedReviews: 'product',
     };
     this.getFirstFourReviews = this.getFirstFourReviews.bind(this);
   }
 
-  getFirstFourReviews() {
+  getFirstFourReviews(reviews) {
     const firstFour = [];
-    const { reviewArray } = this.state;
     for (let i = 0; i < 4; i += 1) {
-      const reviewData = reviewArray[i];
-      if (reviewArray[i] === undefined) {
+      const reviewData = reviews[i];
+      if (reviews[i] === undefined) {
         break;
       } else {
         firstFour.push(<Review
@@ -34,25 +35,23 @@ class ReviewContainer extends React.Component {
 
   render() {
     const { productReviewTotal, shopReviewTotal } = this.props;
-    const { reviewArray } = this.state;
+    const { productReviews, shopReviews } = this.state;
+
     return (
       <div className='review-container'>
         <div className="review-tabs">
-          <button type="button">
+          <button type="button" className="product-review-button" onClick={()=> this.setState({ selectedReviews: 'product' })}>
             Reviews for this item
-            <span>{productReviewTotal}</span>
+            <span> {productReviewTotal}</span>
           </button>
-          <button type="button">
-            Reviews for this item
+          <button type="button" className="shop-review-button" onClick={()=> this.setState({ selectedReviews: 'shop' })}>
+            Reviews for this shop
             <span>{shopReviewTotal}</span>
           </button>
         </div>
-        {/* Only show the first four */}
-        {/* Render data that will be added to reviewArray */}
 
-        {this.getFirstFourReviews().map((data) => data)}
-        {/* See More Button */}
-        {(reviewArray.length > 4) ? <button className="more-reviews-button" type="button">See More</button> : null}
+        {this.getFirstFourReviews(productReviews).map((data) => data)}
+        {(productReviews.length > 4) ? <button className="more-reviews-button" type="button">See More</button> : null}
       </div>
     );
   }
