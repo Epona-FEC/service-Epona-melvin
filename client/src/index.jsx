@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ProductStats from './components/ProductStats.jsx';
-import ReviewContainer from './components/ReviewContainer.jsx';
+import Review from './components/Review.jsx';
 
 const App = () => (
   <div>
     <ProductStats />
-    <ReviewContainer />
+    <Review />
   </div>
 );
 ReactDOM.render(<App />, document.getElementById('service'));
