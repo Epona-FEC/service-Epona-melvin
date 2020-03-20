@@ -28,6 +28,10 @@ app.use('/listing/:id', (req, res) => {
     { model: Shop }],
   })
     .then((data) => {
+      if (data === null) {
+        res.status(200);
+        res.send({ message: 'This product does not exist' });
+      }
       const {
         dataValues: {
         // eslint-disable-next-line no-shadow
@@ -36,7 +40,7 @@ app.use('/listing/:id', (req, res) => {
       } = data;
       apiData = { productData, shopData: Shop.dataValues };
       return productReviews
-        .map(({ dataValues: { Reviewer: reviewerData, ReviewPhoto: photo, ...product } }) => ({
+        .map(({ dataValues: { Reviewer: reviewerData, ...product } }) => ({
           ...product,
           reviewer: reviewerData.dataValues,
         }));
@@ -61,8 +65,12 @@ app.use('/listing/:id', (req, res) => {
     })
     .catch((err) => {
       res.status(500);
-      res.send({ message: 'Issue in the database', err });
+      res.send({ message: 'Internal Error', err });
     });
+});
+
+app.use((req, res) => {
+  res.status(404).send("Sorry can't find that!");
 });
 
 app.listen(PORT, () => {
