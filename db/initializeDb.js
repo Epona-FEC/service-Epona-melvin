@@ -20,7 +20,8 @@ module.exports = (sequelize) => sequelize.query('SET FOREIGN_KEY_CHECKS = 0')
   .then(() => Promise.all(generateReviews.map((review) => sequelize.models.Product
     .findByPk(review.ProductId,
       { include: [{ model: sequelize.models.Shop }] })
-    .then((data) => sequelize.models.Review.create({ ShopId: data.Shop.id, ...review })))))
+    .then((data) => sequelize.models.Review
+      .create({ ShopId: data.Shop.id, ...review })))))
   .then(() => Promise.all(generateReviewPhotos
     .map((photo) => sequelize.models.ReviewPhoto.create(photo))))
   .catch((err) => {
