@@ -1,11 +1,9 @@
-const { sequelize, Sequelize } = require('./index');
-const createDatabaseIfNotExist = require('./models/utils/createDatabaseIfNotExists');
+const { sequelize } = require('./index');
 const initializeDb = require('./initializeDb');
-const initializeModels = require('./initializeModels');
+const createDatabaseIfNotExist = require('./models/utils/createDatabaseIfNotExists');
 
 const serviceDbName = 'etsyReviewService';
 
-initializeModels(sequelize, Sequelize);
 
 createDatabaseIfNotExist(serviceDbName)
   .then(() => initializeDb(sequelize))
