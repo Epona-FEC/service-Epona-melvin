@@ -14,8 +14,9 @@ const PORT = 4000;
 // Access components in build.js
 app.use(express.static(path.join(__dirname, '/../public/dist')));
 
-app.get('/listing/:id', (req, res) => {
+app.use('/listing/:id', (req, res) => {
   let apiData = {
+    reviewPhotos: [],
   };
 
   Product.findByPk(req.params.id, {
