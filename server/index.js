@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const {
   sequelize: {
     models: {
@@ -9,6 +10,9 @@ const {
 
 const app = express();
 const PORT = 4000;
+
+// Access components in build.js
+app.use(express.static(path.join(__dirname, '/../public/dist')));
 
 app.use('/listing/:id', (req, res) => {
   let apiData = {
