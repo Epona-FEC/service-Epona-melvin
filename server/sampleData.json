@@ -1,0 +1,188 @@
+{
+  "productData": {
+    "id": 4,
+    "name": "Gorgeous Wooden Shirt",
+    "listed_at": "2020-03-20T07:07:00.000Z",
+    "favorites": 81959,
+    "photoUrl": "http://lorempixel.com/640/480",
+    "ShopId": 91
+  },
+  "shopData": {
+    "id": 91,
+    "name": "Effertz and Sons",
+    "createdAt": "2020-03-20T07:07:00.000Z",
+    "updatedAt": "2020-03-20T07:07:00.000Z"
+  },
+  "productReviews": [
+    {
+      "id": 13,
+      "body": "Quaerat velit consequatur iste aspernatur excepturi harum repudiandae. Aut quod aliquam sit neque eligendi distinctio quam molestiae. Ad autem cum repellat cum consectetur dolore.",
+      "score": 1,
+      "createdAt": "2020-03-20T07:07:01.000Z",
+      "updatedAt": "2020-03-20T07:07:01.000Z",
+      "ShopId": 91,
+      "ProductId": 4,
+      "ReviewerId": 60,
+      "ReviewPhoto": {
+        "id": 13,
+        "url": "http://lorempixel.com/640/480",
+        "description": "Ea maxime suscipit id vel est commodi et cum.",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z",
+        "ReviewId": 13
+      },
+      "reviewer": {
+        "id": 60,
+        "name": "Kavon Bailey",
+        "photoUrl": "http://lorempixel.com/640/480",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z"
+      }
+    },
+    {
+      "id": 34,
+      "body": "Nesciunt earum enim consequatur maxime quis cum est. Nemo amet error voluptatem cum praesentium quidem nihil sapiente. Molestiae et aut. Quo et iure laboriosam officiis est.",
+      "score": 4,
+      "createdAt": "2020-03-20T07:07:01.000Z",
+      "updatedAt": "2020-03-20T07:07:01.000Z",
+      "ShopId": 91,
+      "ProductId": 4,
+      "ReviewerId": 7,
+      "ReviewPhoto": {
+        "id": 34,
+        "url": "http://lorempixel.com/640/480",
+        "description": "Similique aut officia.",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z",
+        "ReviewId": 34
+      },
+      "reviewer": {
+        "id": 7,
+        "name": "Prince Fay",
+        "photoUrl": "http://lorempixel.com/640/480",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z"
+      }
+    },
+    {
+      "id": 52,
+      "body": "Ut et dolorem quos doloremque. Facere similique error vero qui illo. Dicta numquam aperiam enim. Neque numquam quo placeat nihil repudiandae recusandae sit sed. Ut numquam aspernatur aliquid neque et. Quam est in omnis.",
+      "score": 5,
+      "createdAt": "2020-03-20T07:07:01.000Z",
+      "updatedAt": "2020-03-20T07:07:01.000Z",
+      "ShopId": 91,
+      "ProductId": 4,
+      "ReviewerId": 81,
+      "ReviewPhoto": {
+        "id": 52,
+        "url": "http://lorempixel.com/640/480",
+        "description": "Et dolorem numquam.",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z",
+        "ReviewId": 52
+      },
+      "reviewer": {
+        "id": 81,
+        "name": "Chester Jaskolski",
+        "photoUrl": "http://lorempixel.com/640/480",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z"
+      }
+    },
+    {
+      "id": 100,
+      "body": "A facere autem quia quam assumenda voluptatibus consequatur. Quasi tempora dolore laboriosam. Voluptatem expedita illo repellendus et pariatur voluptas qui. Corporis perspiciatis ab. Odit omnis quod quasi voluptate qui commodi sapiente.",
+      "score": 3,
+      "createdAt": "2020-03-20T07:07:01.000Z",
+      "updatedAt": "2020-03-20T07:07:01.000Z",
+      "ShopId": 91,
+      "ProductId": 4,
+      "ReviewerId": 43,
+      "ReviewPhoto": {
+        "id": 100,
+        "url": "http://lorempixel.com/640/480",
+        "description": "Illum velit minima.",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z",
+        "ReviewId": 100
+      },
+      "reviewer": {
+        "id": 43,
+        "name": "Domingo Nolan",
+        "photoUrl": "http://lorempixel.com/640/480",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z"
+      }
+    }
+  ],
+  "shopReviews": [
+    {
+      "id": 13,
+      "body": "Quaerat velit consequatur iste aspernatur excepturi harum repudiandae. Aut quod aliquam sit neque eligendi distinctio quam molestiae. Ad autem cum repellat cum consectetur dolore.",
+      "score": 1,
+      "createdAt": "2020-03-20T07:07:01.000Z",
+      "updatedAt": "2020-03-20T07:07:01.000Z",
+      "ShopId": 91,
+      "ProductId": 4,
+      "ReviewerId": 60,
+      "reviewer": {
+        "id": 60,
+        "name": "Kavon Bailey",
+        "photoUrl": "http://lorempixel.com/640/480",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z"
+      }
+    },
+    {
+      "id": 34,
+      "body": "Nesciunt earum enim consequatur maxime quis cum est. Nemo amet error voluptatem cum praesentium quidem nihil sapiente. Molestiae et aut. Quo et iure laboriosam officiis est.",
+      "score": 4,
+      "createdAt": "2020-03-20T07:07:01.000Z",
+      "updatedAt": "2020-03-20T07:07:01.000Z",
+      "ShopId": 91,
+      "ProductId": 4,
+      "ReviewerId": 7,
+      "reviewer": {
+        "id": 7,
+        "name": "Prince Fay",
+        "photoUrl": "http://lorempixel.com/640/480",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z"
+      }
+    },
+    {
+      "id": 52,
+      "body": "Ut et dolorem quos doloremque. Facere similique error vero qui illo. Dicta numquam aperiam enim. Neque numquam quo placeat nihil repudiandae recusandae sit sed. Ut numquam aspernatur aliquid neque et. Quam est in omnis.",
+      "score": 5,
+      "createdAt": "2020-03-20T07:07:01.000Z",
+      "updatedAt": "2020-03-20T07:07:01.000Z",
+      "ShopId": 91,
+      "ProductId": 4,
+      "ReviewerId": 81,
+      "reviewer": {
+        "id": 81,
+        "name": "Chester Jaskolski",
+        "photoUrl": "http://lorempixel.com/640/480",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z"
+      }
+    },
+    {
+      "id": 100,
+      "body": "A facere autem quia quam assumenda voluptatibus consequatur. Quasi tempora dolore laboriosam. Voluptatem expedita illo repellendus et pariatur voluptas qui. Corporis perspiciatis ab. Odit omnis quod quasi voluptate qui commodi sapiente.",
+      "score": 3,
+      "createdAt": "2020-03-20T07:07:01.000Z",
+      "updatedAt": "2020-03-20T07:07:01.000Z",
+      "ShopId": 91,
+      "ProductId": 4,
+      "ReviewerId": 43,
+      "reviewer": {
+        "id": 43,
+        "name": "Domingo Nolan",
+        "photoUrl": "http://lorempixel.com/640/480",
+        "createdAt": "2020-03-20T07:07:01.000Z",
+        "updatedAt": "2020-03-20T07:07:01.000Z"
+      }
+    }
+  ]
+}

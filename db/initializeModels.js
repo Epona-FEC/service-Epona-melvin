@@ -19,10 +19,11 @@ module.exports = (sequelize, Sequelize) => {
   Review.belongsTo(Shop);
   Review.belongsTo(Product);
   Review.belongsTo(Reviewer);
+  Review.hasOne(ReviewPhoto);
   Shop.hasMany(Review);
   ReviewPhoto.belongsTo(Review);
   Reviewer.hasMany(Review);
   Product.belongsTo(Shop);
-  Product.hasOne(Review);
+  Product.hasMany(Review, { as: 'productReviews' });
   Shop.hasMany(Product);
 };
