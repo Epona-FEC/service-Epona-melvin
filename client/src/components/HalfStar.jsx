@@ -9,7 +9,8 @@ const HalfStar = () => (
     x="0px"
     y="0px"
     viewBox="0 0 276.901 276.901"
-    style={{ enableBackground: 'new 0 0 276.901 276.901' }}
+    width="18px"
+    height="18px"
     xmlSpace="preserve"
   >
     <path d="M275.922,105.676c-2.353-7.24-8.612-12.517-16.146-13.611l-71.441-10.381l-31.95-64.737
