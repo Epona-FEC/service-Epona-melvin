@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-const Review = ({ product, review, reviewer }) => {
+const Review = ({ product, review, reviewer, renderStars }) => {
   const { name, id } = product;
   const { avatar, username } = reviewer;
   const { date, score, body } = review;
@@ -13,7 +13,7 @@ const Review = ({ product, review, reviewer }) => {
       {/* Possible Component to Refactor */}
       <div className='review-info'>
         <img className='avatar' src={avatar} alt={`${username}'s avatar`} />
-        <a className='reviewer-name' href={`/users/${username}`}>
+        <a className='reviewer-name review-link' href={`/users/${username}`}>
           { username }
         </a>
         <em className='review-date'>{ moment(date).format('MMM DD, YYYY')}</em>
@@ -33,7 +33,7 @@ const Review = ({ product, review, reviewer }) => {
         <span>Purchased item:</span>
         <div className='review-product-data'>
           <img className='product-icon' src={product.photoUrl} alt={name} />
-          <a href={`/listing/${id}`}>
+          <a href={`/listing/${id}`} className='review-link'>
             { name }
           </a>
         </div>
@@ -58,6 +58,7 @@ Review.propTypes = {
     avatar: PropTypes.string,
     username: PropTypes.string,
   }),
+  renderStars: PropTypes.function
 };
 
 Review.defaultProps = {

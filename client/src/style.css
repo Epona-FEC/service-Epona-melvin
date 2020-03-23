@@ -1,6 +1,7 @@
 svg {
   margin-right: 5px;
 }
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -11,6 +12,7 @@ svg {
   flex-direction: column;
   flex-wrap: nowrap;
 }
+
 
 /* ===================== */
 
@@ -79,14 +81,29 @@ margin-bottom: 20px;
 }
 
 /* =================================== */
+
 .review-info{
   align-items:center;
   display: flex;
   flex: row nowrap;
+  color: #595959
 }
 .avatar {
   height:50px;
   width: 50px;
   border-radius:50%;
-  margin-right:5px;
+  margin-right:10px;
+}
+
+.reviewer-name{
+  margin-right: 10px;
+}
+
+.review-link {
+  color: inherit;
+  margin-right: 10px;
+  transition: color ease-out .25s;
+}
+.review-link:hover {
+  color: #bdc3c7;
 }
