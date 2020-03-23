@@ -16,7 +16,7 @@ class ReviewContainer extends React.Component {
       productReviews: sampleData,
       seeMoreReviewsIsClicked: false,
       shopReviews: [1, 2, 3, 4, 5, 7, 8, 20],
-      productReviewsSelected: false,
+      productReviewsSelected: true,
       reviewPhotos: [
         {
           url: 'https://source.unsplash.com/random/200x200',
@@ -115,7 +115,7 @@ class ReviewContainer extends React.Component {
         <div className="review-tabs">
           <button
             type="button"
-            className={`review-button ${productReviewsSelected && 'active-button'}`}
+            className={`review-button ${productReviewsSelected ? 'active-button' : 'non-active-button'}`}
             onClick={() => this.setState({ productReviewsSelected: true })}
           >
             Reviews for this item
@@ -125,7 +125,7 @@ class ReviewContainer extends React.Component {
           </button>
           <button
             type="button"
-            className={`review-button ${!productReviewsSelected && 'active-button'}`}
+            className={`review-button ${!productReviewsSelected ? 'active-button' : 'non-active-button'}`}
             onClick={() => this.setState({ productReviewsSelected: false })}
           >
             Reviews for this shop
