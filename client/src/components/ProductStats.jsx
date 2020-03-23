@@ -4,7 +4,6 @@ import HalfStar from './HalfStar.jsx';
 import EmptyStar from './EmptyStar.jsx';
 import FullStar from './FullStar.jsx';
 
-import '../style.css';
 
 const renderStarRatings = (score) => {
   const stars = [];

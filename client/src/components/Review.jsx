@@ -1,11 +1,14 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment'
 
 const Review = ({ product, review, reviewer }) => {
+
   const { name, id } = product;
   const { avatar, username } = reviewer;
   const { date, score, body } = review;
+
   return (
     <div>
       <img src={avatar} alt={`${username}'s avatar`} />
@@ -13,7 +16,7 @@ const Review = ({ product, review, reviewer }) => {
         { username }
       </a>
 
-      <em className='review-date'>{ date.toString() }</em>
+      <em className='review-date'>{ moment(date).format('MMM DD, YYYY')}</em>
       <div className='review-score'>
         { score }
       </div>
