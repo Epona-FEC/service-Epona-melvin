@@ -31,7 +31,7 @@ svg {
 /* =================== */
 /* Review Container */
 .review-tabs{
-border-bottom: 2px solid #ccc;
+border-bottom: 3px solid rgb(230, 228, 228);
 margin-bottom: 20px;
 }
 
@@ -51,7 +51,7 @@ margin-bottom: 20px;
 .review-button:after{
   display:block;
   position: relative;
-  bottom:-4px;
+  bottom:-3px;
   padding-bottom:16px;
   padding-right:20px;
   content: '';
@@ -64,7 +64,7 @@ margin-bottom: 20px;
 }
 
 .non-active-button:after {
-  border-bottom: solid 3px #bdc3c7;
+  border-bottom: solid 3px #535c68;
   transform: scaleX(0);
 }
 .non-active-button:hover:after {
