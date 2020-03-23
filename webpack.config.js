@@ -21,7 +21,6 @@ module.exports = {
         ],
       },
       {
-<<<<<<< HEAD
         test: /\.css$/,
         use: [
           'style-loader',
@@ -42,10 +41,6 @@ module.exports = {
           'css-loader',
         ],
         exclude: /\.module\.css$/,
-=======
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
->>>>>>> master
       },
     ],
   },

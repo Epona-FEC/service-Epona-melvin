@@ -27,6 +27,48 @@ svg {
   margin-right: 10px;
 }
 
+/* =================== */
+/* Review Container */
+.review-tabs{
+border-bottom: 2px solid #ccc;
+}
+
+.review-tabs:after{
+}
+
+.review-button {
+  background-color: #fff;
+  border:none;
+  text-align: left;
+}
+
+/* Removes outline when button is clicked */
+.review-button:focus {
+  outline:0;
+}
+
+.review-button:hover {
+  cursor: pointer;
+}
+.active-button {
+  border-bottom: solid 3px #019fb6;
+  margin-bottom: -3px;
+}
+
+.review-button:after {
+  display:block;
+  position: relative;
+  bottom:-4px;
+  padding-bottom:16px;
+  content: '';
+  border-bottom: solid 3px #019fb6;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+.review-button:hover:after {
+  transform: scaleX(1);
+}
+
 @media (min-width: 600px) {
 
 }

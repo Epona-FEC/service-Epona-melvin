@@ -1,11 +1,14 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+
+import sampleData from '../../sampleData';
 
 import ReviewPhotos from './ReviewPhotos.jsx';
 import Review from './Review.jsx';
-import 'pure-react-carousel/dist/react-carousel.es.css';import sampleData from '../../sampleData';
+
+import '../style.css';
+
 class ReviewContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +16,7 @@ class ReviewContainer extends React.Component {
       productReviews: sampleData,
       seeMoreReviewsIsClicked: false,
       shopReviews: [1, 2, 3, 4, 5, 7, 8, 20],
-      selectedReviews: 'product',
+      productReviewsSelected: false,
       reviewPhotos: [
         {
           url: 'https://source.unsplash.com/random/200x200',
@@ -84,6 +87,19 @@ class ReviewContainer extends React.Component {
     return photos;
   }
 
+  /**
+   * Sets currrent tab, for reviews
+   * @param {boolean} isSelected  Boolean if product reviews is selected
+   *
+   */
+  setCurrentTab(isSelected) {
+    this.setState({
+      productReviewsSelected:
+      isSelected,
+    });
+  }
+
+
   moreReviewsClick() {
     this.setState({ seeMoreReviewsIsClicked: true });
   }
@@ -91,24 +107,32 @@ class ReviewContainer extends React.Component {
   render() {
     const { productReviewTotal, shopReviewTotal } = this.props;
     const {
-      productReviews, shopReviews, selectedReviews, seeMoreReviewsIsClicked, reviewPhotos,
+      productReviews, shopReviews, productReviewsSelected, seeMoreReviewsIsClicked, reviewPhotos,
     } = this.state;
 
     return (
       <div className='review-container'>
         <div className="review-tabs">
-          <button type="button" className="product-review-button" onClick={() => this.setState({ selectedReviews: 'product' })}>
+          <button
+            type="button"
+            className={`review-button ${productReviewsSelected && 'active-button'}`}
+            onClick={() => this.setState({ productReviewsSelected: true })}
+          >
             Reviews for this item
-            <span>
+            <span className='review-data'>
               {productReviewTotal}
             </span>
           </button>
-          <button type="button" className="shop-review-button" onClick={() => this.setState({ selectedReviews: 'shop' })}>
+          <button
+            type="button"
+            className={`review-button ${!productReviewsSelected && 'active-button'}`}
+            onClick={() => this.setState({ productReviewsSelected: false })}
+          >
             Reviews for this shop
-            <span>{shopReviewTotal}</span>
+            <span className='review-data'>{shopReviewTotal}</span>
           </button>
         </div>
-        {(selectedReviews === 'product') ? [
+        {(productReviewsSelected) ? [
           <Reviews getReviews={this.getFirstFourReviews} reviews={productReviews} />,
           (productReviews.length > 4 && !seeMoreReviewsIsClicked)
             ? <button className="more-reviews-button" type="button" onClick={() => this.moreReviewsClick()}>See More</button>
@@ -121,19 +145,7 @@ class ReviewContainer extends React.Component {
           (seeMoreReviewsIsClicked)
             ? <Reviews getReviews={this.getRestOfReviews} reviews={shopReviews} /> : null,
         ]}
-        <CarouselProvider
-          naturalSlideWidth={1}
-          naturalSlideHeight={1}
-          totalSlides={Math.floor(reviewPhotos.length / 4)}
-        >
-          <Slider>
-            <Slide index={0}>
-              <ReviewPhotos photos={this.getFourPhotos(0)} />
-            </Slide>
-          </Slider>
-          <ButtonBack>Back</ButtonBack>
-          <ButtonNext>Next</ButtonNext>
-        </CarouselProvider>
+        {/* Picture Carousel here */}
       </div>
     );
   }
