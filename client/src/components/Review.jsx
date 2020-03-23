@@ -1,22 +1,24 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment'
+import moment from 'moment';
 
 const Review = ({ product, review, reviewer }) => {
-
   const { name, id } = product;
   const { avatar, username } = reviewer;
   const { date, score, body } = review;
 
   return (
     <div>
-      <img src={avatar} alt={`${username}'s avatar`} />
-      <a className='reviewer-name' href={`/users/${username}`}>
-        { username }
-      </a>
-
-      <em className='review-date'>{ moment(date).format('MMM DD, YYYY')}</em>
+      {/* Possible Component to Refactor */}
+      <div className='review-info'>
+        <img className='avatar' src={avatar} alt={`${username}'s avatar`} />
+        <a className='reviewer-name' href={`/users/${username}`}>
+          { username }
+        </a>
+        <em className='review-date'>{ moment(date).format('MMM DD, YYYY')}</em>
+      </div>
+      {/* ====== */}
       <div className='review-score'>
         { score }
       </div>

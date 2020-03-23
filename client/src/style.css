@@ -79,3 +79,14 @@ margin-bottom: 20px;
 }
 
 /* =================================== */
+.review-info{
+  align-items:center;
+  display: flex;
+  flex: row nowrap;
+}
+.avatar {
+  height:50px;
+  width: 50px;
+  border-radius:50%;
+  margin-right:5px;
+}
