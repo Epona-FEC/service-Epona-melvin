@@ -1,6 +1,7 @@
 svg {
   margin-right: 5px;
 }
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -10,6 +11,10 @@ svg {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+}
+
+.review-container{
+  min-width: 500px;
 }
 
 /* ===================== */
@@ -29,7 +34,7 @@ svg {
 /* =================== */
 /* Review Container */
 .review-tabs{
-border-bottom: 2px solid #ccc;
+border-bottom: 3px solid rgb(230, 228, 228);
 margin-bottom: 20px;
 }
 
@@ -49,7 +54,7 @@ margin-bottom: 20px;
 .review-button:after{
   display:block;
   position: relative;
-  bottom:-4px;
+  bottom:-3px;
   padding-bottom:16px;
   padding-right:20px;
   content: '';
@@ -62,7 +67,7 @@ margin-bottom: 20px;
 }
 
 .non-active-button:after {
-  border-bottom: solid 3px #bdc3c7;
+  border-bottom: solid 3px #535c68;
   transform: scaleX(0);
 }
 .non-active-button:hover:after {
@@ -79,3 +84,108 @@ margin-bottom: 20px;
 }
 
 /* =================================== */
+.review {
+  padding-bottom: 15px;
+}
+.review-info{
+  align-items:center;
+  display: flex;
+  color: #595959
+}
+.avatar {
+  height:36px;
+  width: 36px;
+  border-radius:50%;
+  margin-right:10px;
+}
+
+.reviewer-name{
+  margin-right: 10px;
+}
+
+.review-link {
+  color: inherit;
+  margin-right: 8px;
+  transition: color ease-out .25s;
+}
+.review-link:hover {
+  color: #bdc3c7;
+}
+
+.review-body {
+  margin-left:46px;
+}
+
+.review-score{
+  margin: 5px 0;
+}
+
+.review-data{
+  margin-bottom:10px;
+}
+
+.review-photo {
+  border-radius:10px;
+}
+
+.review-product-data {
+  color:#595959
+}
+
+.product-icon {
+  margin-top:15px;
+  margin-right:10px;
+  margin-bottom:15px;
+}
+
+@media screen and (min-width: 500px) {
+  .review-body{
+    display:flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap:wrap;
+  }
+  .review-data{
+    margin-right: auto;
+    width:75%;
+  }
+  .review-photo{
+    height:100px;
+    width:100px;
+  }
+  .review-product-data{
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+  }
+  .review-product-data div{
+    align-items:center;
+    display: flex;
+  }
+}
+
+/* ========================= */
+.see-more-container{
+  text-align: center;
+}
+
+
+
+.more-reviews-button {
+  padding: 16px 20px;
+  line-height: 1.1;
+  background: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  position: relative;
+  -webkit-transition: background-color .6s ease;
+  transition: background-color .6s ease;
+  border-radius:10px;
+  border-style: none;
+}
+
+.more-reviews-button:focus, .more-reviews-button:hover {
+  background: #bdc3c7;
+}

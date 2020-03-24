@@ -17,6 +17,7 @@
     "enzyme-to-json": "^3.4.4",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "moment": "^2.24.0",
     "mysql2": "^2.1.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
