@@ -9,7 +9,7 @@ const Review = ({ product, review, reviewer, renderStars }) => {
   const { date, score, body } = review;
 
   return (
-    <div>
+    <div className="review">
       {/* Possible Component to Refactor */}
       <div className='review-info'>
         <img className='avatar' src={avatar} alt={`${username}'s avatar`} />
@@ -19,23 +19,23 @@ const Review = ({ product, review, reviewer, renderStars }) => {
         <em className='review-date'>{ moment(date).format('MMM DD, YYYY')}</em>
       </div>
       {/* ====== */}
-      <div className='review-score'>
-        { score }
-      </div>
       <div className='review-body'>
-        {body}
-        <div>
-          <img src={review.photoUrl} alt={`${username} added a photo of their purchase`} />
+        <div className='review-data'>
+          <div className='review-score'>
+            { score }
+          </div>
+          <span className='review-text'>{body}</span>
         </div>
-      </div>
-      <div>
+        <img className='review-photo' src={review.photoUrl} alt={`${username} added a photo of their purchase`} />
         {/* Shopowner Div HERE  TODO: REPLY */}
-        <span>Purchased item:</span>
         <div className='review-product-data'>
-          <img className='product-icon' src={product.photoUrl} alt={name} />
-          <a href={`/listing/${id}`} className='review-link'>
-            { name }
-          </a>
+          <span>Purchased item:</span>
+          <div>
+            <img className='product-icon' src={product.photoUrl} alt={name} />
+            <a href={`/listing/${id}`} className='review-link'>
+              { name }
+            </a>
+          </div>
         </div>
       </div>
     </div>
