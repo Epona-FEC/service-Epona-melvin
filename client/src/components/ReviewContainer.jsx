@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import sampleData from '../../sampleData';
 
 import ReviewPhotos from './ReviewPhotos.jsx';
+import ImageCarousel from './ImageCarousel.jsx';
 import Review from './Review.jsx';
 
 import '../style.css';
@@ -19,24 +20,40 @@ class ReviewContainer extends React.Component {
       productReviewsSelected: true,
       reviewPhotos: [
         {
-          url: 'https://source.unsplash.com/random/200x200',
+          url: 'https://source.unsplash.com/random/180x180',
           description: 'Purchase of a customer',
         },
         {
-          url: 'https://source.unsplash.com/random/200x200',
+          url: 'https://source.unsplash.com/random/180x180',
           description: 'Purchase of a customer',
         },
         {
-          url: 'https://source.unsplash.com/random/200x200',
+          url: 'https://source.unsplash.com/random/180x180',
           description: 'Purchase of a customer',
         },
         {
-          url: 'https://source.unsplash.com/random/200x200',
+          url: 'https://source.unsplash.com/random/180x180',
+          description: 'Purchase of a customer',
+        },
+        {
+          url: 'https://source.unsplash.com/random/180x180',
           description: 'Purchase of a customer',
         },
       ],
+      carouselTransform: 0,
+      carouselWidth: null,
     };
     this.getFirstFourReviews = this.getFirstFourReviews.bind(this);
+    this.displayPrevImages = this.displayPrevImages.bind(this);
+    this.displayNextImages = this.displayNextImages.bind(this);
+  }
+
+  componentDidMount() {
+    const { reviewPhotos } = this.state;
+    // Maxwidth is 810px and 16px margin
+    const carouselWidth = Math.ceil(reviewPhotos.length / 4) * 840;
+    console.log(carouselWidth);
+    this.setState({ carouselWidth });
   }
 
   getFirstFourReviews(reviews) {
@@ -104,10 +121,40 @@ class ReviewContainer extends React.Component {
     this.setState({ seeMoreReviewsIsClicked: true });
   }
 
+  /**
+   * Changes translateX value dynamically on carousel-slide class to the left
+   */
+  displayPrevImages() {
+    const { carouselTransform } = this.state;
+    if (carouselTransform === 0) {
+      return;
+    }
+    this.setState((prevState) => ({
+      carouselTransform: prevState.carouselTransform + 840,
+      carouselWidth: prevState.carouselWidth + 840,
+    }));
+  }
+
+  /**
+   * Changes translateX value dynamically on carousel-slide class to the right
+   */
+  displayNextImages() {
+    const { carouselWidth } = this.state;
+    // Stops if reaches the end of carousel
+    if (carouselWidth - 840 === 0) {
+      return;
+    }
+    this.setState((prevState) => ({
+      carouselTransform: prevState.carouselTransform - 840,
+      carouselWidth: prevState.carouselWidth - 840,
+    }));
+  }
+
   render() {
     const { productReviewTotal, shopReviewTotal } = this.props;
     const {
-      productReviews, shopReviews, productReviewsSelected, seeMoreReviewsIsClicked, reviewPhotos,
+      productReviews, shopReviews, productReviewsSelected,
+      seeMoreReviewsIsClicked, reviewPhotos, carouselTransform,
     } = this.state;
 
     return (
@@ -148,6 +195,12 @@ class ReviewContainer extends React.Component {
             ? <Reviews getReviews={this.getRestOfReviews} reviews={shopReviews} /> : null,
         ]}
         {/* Picture Carousel here */}
+        <ImageCarousel
+          photos={reviewPhotos}
+          styles={{ transform: `translateX(${carouselTransform}px)` }}
+          slideInPrevImages={this.displayPrevImages}
+          slideInNextImages={this.displayNextImages}
+        />
       </div>
     );
   }
