@@ -165,3 +165,27 @@ margin-bottom: 20px;
 }
 
 /* ========================= */
+.see-more-container{
+  text-align: center;
+}
+
+
+
+.more-reviews-button {
+  padding: 16px 20px;
+  line-height: 1.1;
+  background: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  position: relative;
+  -webkit-transition: background-color .6s ease;
+  transition: background-color .6s ease;
+  border-radius:10px;
+  border-style: none;
+}
+
+.more-reviews-button:focus, .more-reviews-button:hover {
+  background: #bdc3c7;
+}

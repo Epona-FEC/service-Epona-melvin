@@ -132,16 +132,18 @@ class ReviewContainer extends React.Component {
             <span className='review-data'>{shopReviewTotal}</span>
           </button>
         </div>
+        {/* If product reviews selected render product reviews */}
         {(productReviewsSelected) ? [
           <Reviews getReviews={this.getFirstFourReviews} reviews={productReviews} />,
           (productReviews.length > 4 && !seeMoreReviewsIsClicked)
-            ? <button className="more-reviews-button" type="button" onClick={() => this.moreReviewsClick()}>See More</button>
-            : null,
+            ? <div className='see-more-container'><button className="more-reviews-button" type="button" onClick={() => this.moreReviewsClick()}>See More Reviews</button></div> : null,
           (seeMoreReviewsIsClicked)
             ? <Reviews getReviews={this.getRestOfReviews} reviews={productReviews} /> : null,
         ] : [
+        // If shopReviews is selected:
+
           <Reviews getReviews={this.getFirstFourReviews} reviews={shopReviews} />,
-          (shopReviews.length > 4 && !seeMoreReviewsIsClicked) ? <button className="more-reviews-button" type="button" onClick={() => this.moreReviewsClick()}>See More</button> : null,
+          (shopReviews.length > 4 && !seeMoreReviewsIsClicked) ? <div className='see-more-container'><button className="more-reviews-button" type="button" onClick={() => this.moreReviewsClick()}>See More Reviews</button></div> : null,
           (seeMoreReviewsIsClicked)
             ? <Reviews getReviews={this.getRestOfReviews} reviews={shopReviews} /> : null,
         ]}
@@ -150,7 +152,7 @@ class ReviewContainer extends React.Component {
     );
   }
 }
-// TODO: Refacor this line to put it in
+// TODO: Create component for this Reviews Component
 const Reviews = ({ getReviews, reviews }) => getReviews(reviews).map((data) => data);
 
 ReviewContainer.propTypes = {
