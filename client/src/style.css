@@ -136,6 +136,9 @@ margin-bottom: 20px;
   margin-top:15px;
   margin-right:10px;
   margin-bottom:15px;
+  border-radius:10px;
+  height:36px;
+  width:36px;
 }
 
 @media screen and (min-width: 600px) {

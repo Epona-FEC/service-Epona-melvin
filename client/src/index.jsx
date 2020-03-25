@@ -28,7 +28,6 @@ const renderStarRatings = (score) => {
 
 const App = () => (
   <div>
-    <ProductStats renderStars={(score)=>renderStarRatings(score)} />
     <ReviewContainer renderStars={(score)=>renderStarRatings(score)} />
   </div>
 );

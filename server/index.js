@@ -9,7 +9,7 @@ const {
 } = require('../db');
 
 const app = express();
-const PORT = 4000;
+const PORT = 3003;
 
 // Access components in build.js
 app.use(express.static(path.join(__dirname, '/../public/dist')));

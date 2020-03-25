@@ -1,9 +1,12 @@
 /* eslint-disable class-methods-use-this */
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import sampleData from '../../sampleData';
 import ImageCarousel from './ImageCarousel.jsx';
+import ProductStats from './ProductStats.jsx';
+
 import Review from './Review.jsx';
 
 import '../style.css';
@@ -38,6 +41,8 @@ class ReviewContainer extends React.Component {
           description: 'Purchase of a customer',
         },
       ],
+      productReviewTotal: 25,
+      shopReviewTotal: 50,
       carouselTransform: 0,
       carouselWidth: null,
     };
@@ -50,11 +55,20 @@ class ReviewContainer extends React.Component {
 
   componentDidMount() {
     const { reviewPhotos } = this.state;
+    const { reviewId } = this.props;
     // Maxwidth is 810px and 16px margin
     const carouselWidth = Math.ceil(reviewPhotos.length / 4) * 840;
     this.setState({ carouselWidth });
-  }
 
+    axios(`http://localhost:3003/listing/${reviewId}`)
+      .then(({data})=>{
+        return Promise.resolve(this.setState({
+          productReviews: data.productReviews,
+          shopReviews: data.shopReviews,
+        }));
+      })
+
+  }
 
   getFirstFourReviews(reviews) {
     const {renderStars} = this.props;
@@ -67,7 +81,10 @@ class ReviewContainer extends React.Component {
         firstFour.push(<Review
           review={reviewData.review}
           product={reviewData.product}
-          reviewer={reviewData.reviewer}
+          reviewer={{
+            avatar: reviewData.reviewer.photoUrl,
+            username: reviewData.reviewer.name,
+          }}
           renderStars={renderStars}
         />);
       }
@@ -76,7 +93,7 @@ class ReviewContainer extends React.Component {
   }
 
   getRestOfReviews(reviews) {
-    const {renderStars} = this.props;
+    const {renderStars } = this.props;
     const rest = [];
     for (let i = 4; i < 20; i += 1) {
       const reviewData = reviews[i];
@@ -86,7 +103,10 @@ class ReviewContainer extends React.Component {
         rest.push(<Review
           review={reviewData.review}
           product={reviewData.product}
-          reviewer={reviewData.reviewer}
+          reviewer={{
+            avatar: reviewData.reviewer.photoUrl,
+            username: reviewData.reviewer.name,
+          }}
           renderStars={renderStars}
         />);
       }
@@ -142,14 +162,16 @@ class ReviewContainer extends React.Component {
   }
 
   render() {
-    const { productReviewTotal, shopReviewTotal } = this.props;
+    const { renderStars } = this.props;
     const {
+      productReviewTotal, shopReviewTotal,
       productReviews, shopReviews, productReviewsSelected,
       seeMoreReviewsIsClicked, reviewPhotos, carouselTransform,
     } = this.state;
 
     return (
       <div className='review-container'>
+        <ProductStats renderStars={renderStars} />
         <div className="review-tabs">
           <button
             type="button"
@@ -200,13 +222,11 @@ class ReviewContainer extends React.Component {
 const Reviews = ({ getReviews, reviews }) => getReviews(reviews).map((data) => data);
 
 ReviewContainer.propTypes = {
-  productReviewTotal: PropTypes.number,
-  shopReviewTotal: PropTypes.number,
+  renderStars: PropTypes.func,
 };
 
 ReviewContainer.defaultProps = {
-  productReviewTotal: 25,
-  shopReviewTotal: 50,
+  renderStars: () => null,
 };
 
 export default ReviewContainer;
