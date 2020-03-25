@@ -1,8 +1,8 @@
 const { lorem, random } = require('faker');
 
 const reviewData = [];
-let j = 0;
-for (let i = 0; i < 100; i += 1) {
+let j = 1;
+for (let i = 1; i <= 100; i += 1) {
   if (i === 4) {
     j += 1;
   }
