@@ -43,6 +43,7 @@ class ReviewContainer extends React.Component {
       ],
       productReviewTotal: 25,
       shopReviewTotal: 50,
+      shopAvgScore: 0,
       carouselTransform: 0,
       carouselWidth: null,
     };
@@ -75,13 +76,21 @@ class ReviewContainer extends React.Component {
             });
           }
         });
+        let totalShopScore = 0;
+        state.shopReviews.forEach((review) => {
+          totalShopScore += review.score;
+        });
+
         return {
           productReviewTotal: state.productReviews.length,
           shopReviewTotal: state.shopReviews.length,
           reviewPhotos: photos,
+          shopAvgScore: totalShopScore / state.shopReviews.length,
         };
       })))
-      .catch();
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   getFirstFourReviews(reviews) {
@@ -115,8 +124,8 @@ class ReviewContainer extends React.Component {
         break;
       } else {
         rest.push(<Review
-          review={reviewData.review}
-          product={reviewData.product}
+          review={reviewData}
+          product={reviewData.Product}
           reviewer={{
             avatar: reviewData.reviewer.photoUrl,
             username: reviewData.reviewer.name,
@@ -179,12 +188,12 @@ class ReviewContainer extends React.Component {
     const {
       productReviewTotal, shopReviewTotal,
       productReviews, shopReviews, productReviewsSelected,
-      seeMoreReviewsIsClicked, reviewPhotos, carouselTransform,
+      seeMoreReviewsIsClicked, reviewPhotos, carouselTransform, shopAvgScore,
     } = this.state;
 
     return (
       <div className='review-container'>
-        <ProductStats renderStars={renderStars} totalShopReviews={shopReviewTotal} />
+        <ProductStats renderStars={renderStars} totalShopReviews={shopReviewTotal} reviewScore={ shopAvgScore } />
         <div className="review-tabs">
           <button
             type="button"

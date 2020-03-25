@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
+
 const {
   sequelize: {
     models: {
@@ -11,6 +13,7 @@ const {
 const app = express();
 const PORT = 3003;
 
+app.use(cors());
 // Access components in build.js
 app.use(express.static(path.join(__dirname, '/../public/dist')));
 
