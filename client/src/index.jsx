@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ProductStats from './components/ProductStats.jsx';
 import ReviewContainer from './components/ReviewContainer.jsx';
 import HalfStar from './components/HalfStar.jsx';
 import EmptyStar from './components/EmptyStar.jsx';
@@ -25,10 +24,9 @@ const renderStarRatings = (score) => {
   return stars;
 };
 
-
 const App = () => (
   <div>
-    <ReviewContainer renderStars={(score)=>renderStarRatings(score)} />
+    <ReviewContainer renderStars={(score) => renderStarRatings(score)} />
   </div>
 );
 ReactDOM.render(<App />, document.getElementById('app3'));

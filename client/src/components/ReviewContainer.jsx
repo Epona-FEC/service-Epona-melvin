@@ -61,29 +61,37 @@ class ReviewContainer extends React.Component {
     this.setState({ carouselWidth });
 
     axios(`http://localhost:3003/listing/${reviewId}`)
-      .then(({data})=>{
-        console.log(data)
-        return Promise.resolve(this.setState({
-          productReviews: data.productReviews,
-          shopReviews: data.shopReviews,
-        }));
-      })
-      .then(()=>{
-        console.log(this.state)
-      })
+      .then(({ data }) => Promise.resolve(this.setState({
+        productReviews: data.productReviews,
+        shopReviews: data.shopReviews,
+      })))
+      .then(() => Promise.resolve(this.setState((state) => {
+        const photos = [];
+        state.productReviews.forEach((review) => {
+          if (review.ReviewPhoto !== null) {
+            photos.push({
+              url: review.ReviewPhoto.url,
+              description: review.ReviewPhoto.description,
+            });
+          }
+        });
+        return {
+          productReviewTotal: state.productReviews.length,
+          shopReviewTotal: state.shopReviews.length,
+          reviewPhotos: photos,
+        };
+      })))
       .catch();
-
   }
 
   getFirstFourReviews(reviews) {
-    const {renderStars} = this.props;
+    const { renderStars } = this.props;
     const firstFour = [];
     for (let i = 0; i < 4; i += 1) {
       const reviewData = reviews[i];
       if (reviews[i] === undefined) {
         break;
       } else {
-        console.log(reviewData);
         firstFour.push(<Review
           review={reviewData}
           product={reviewData.Product}
@@ -176,7 +184,7 @@ class ReviewContainer extends React.Component {
 
     return (
       <div className='review-container'>
-        <ProductStats renderStars={renderStars} />
+        <ProductStats renderStars={renderStars} totalShopReviews={shopReviewTotal} />
         <div className="review-tabs">
           <button
             type="button"
@@ -233,7 +241,7 @@ ReviewContainer.propTypes = {
 
 ReviewContainer.defaultProps = {
   renderStars: () => null,
-  reviewId: 17,
+  reviewId: 1,
 };
 
 export default ReviewContainer;
