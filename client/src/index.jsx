@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 import ReviewContainer from './components/ReviewContainer.jsx';
 import HalfStar from './components/HalfStar.jsx';
@@ -24,9 +25,19 @@ const renderStarRatings = (score) => {
   return stars;
 };
 
-const App = () => (
-  <div>
-    <ReviewContainer renderStars={(score) => renderStarRatings(score)} />
+const ReviewService = ({ serviceId }) => (
+  <div className='review-service'>
+    <ReviewContainer productId={serviceId} renderStars={(score) => renderStarRatings(score)} />
   </div>
 );
-ReactDOM.render(<App />, document.getElementById('app3'));
+
+ReviewService.propTypes = {
+  serviceId: PropTypes.number,
+};
+
+ReviewService.defaultProps = {
+  serviceId: 4,
+};
+
+const { serviceId } = window;
+ReactDOM.render(<ReviewService serviceId={serviceId} />, document.getElementById('app3'));

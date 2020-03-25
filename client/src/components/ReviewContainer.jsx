@@ -55,12 +55,12 @@ class ReviewContainer extends React.Component {
 
   componentDidMount() {
     const { reviewPhotos } = this.state;
-    const { reviewId } = this.props;
+    const { productId } = this.props;
     // Maxwidth is 810px and 16px margin
     const carouselWidth = Math.ceil(reviewPhotos.length / 4) * 840;
     this.setState({ carouselWidth });
 
-    axios(`http://localhost:3003/listing/${reviewId}`)
+    axios(`http://localhost:3003/listing/${productId}`)
       .then(({ data }) => Promise.resolve(this.setState({
         productReviews: data.productReviews,
         shopReviews: data.shopReviews,
@@ -236,12 +236,12 @@ const Reviews = ({ getReviews, reviews }) => getReviews(reviews).map((data) => d
 
 ReviewContainer.propTypes = {
   renderStars: PropTypes.func,
-  reviewId: PropTypes.number,
+  productId: PropTypes.number,
 };
 
 ReviewContainer.defaultProps = {
   renderStars: () => null,
-  reviewId: 1,
+  productId: 5,
 };
 
 export default ReviewContainer;

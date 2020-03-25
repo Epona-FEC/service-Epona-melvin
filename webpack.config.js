@@ -7,7 +7,6 @@ module.exports = {
     filename: 'build.js',
     path: path.resolve(__dirname, './public/dist'),
   },
-
   module: {
     rules: [
       {

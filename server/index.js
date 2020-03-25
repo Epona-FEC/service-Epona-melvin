@@ -55,17 +55,17 @@ app.use('/listing/:id', (req, res) => {
         include: [{ model: Reviewer }, { model: Product }],
       });
     })
-    .then((shopReviews) => {
-      return Promise.resolve(shopReviews.map(({
+    .then((shopReviews) => Promise.resolve(shopReviews.map(({
       dataValues:
       { Reviewer: reviewerData, ...shop },
     }) => ({ ...shop, reviewer: reviewerData.dataValues })))
       .then((shopReviewData) => {
         apiData = { ...apiData, shopReviews: shopReviewData };
-      })})
+      }))
     .then(() => {
       res.status(200);
       res.send(apiData);
+      res.end();
     })
     .catch((err) => {
       res.status(500);
