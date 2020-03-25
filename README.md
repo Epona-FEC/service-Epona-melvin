@@ -8,12 +8,12 @@
 
 # Table of Contents
 
-1.[Getting Started](#getting-started)
-1.[Prerequesites](#prerequesites)
-1.[Installation](#installation)
-1.[Usage](#usage)
-1.[License](#license)
-1.[Tech Framework used](#tech-framework-used)
+1. [Getting Started](#getting-started)
+1. [Prerequesites](#prerequesites)
+1. [Installation](#installation)
+1. [Usage](#usage)
+1. [License](#license)
+1. [Tech Framework used](#tech-framework-used)
 
 # Getting Started
 These are the steps to get up and running with my service :+1:
