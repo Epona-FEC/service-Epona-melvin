@@ -1,64 +1,80 @@
-# Project Name
+# Etsy Review Service
+> Review Service for  Etsy product page
 
-> Estsy Reviews Service
+# Related Projects
+* https://github.com/eponaaaa/service-FEC-mary
+* https://github.com/eponaaaa/fec-service-michael
+* https://github.com/eponaaaa/service-Ashby
 
-## Related Projects
+# Table of Contents
 
-  - https://github.com/Eponaaaa
+1.[Getting Started](#getting-started)
+1.[Prerequesites](#prerequesites)
+1.[Installation](#installation)
+1.[Usage](#usage)
+1.[License](#license)
+1.[Tech Framework used](#tech-framework-used)
 
-## Table of Contents
+# Getting Started
+These are the steps to get up and running with my service :+1:
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+# Prerequesites
+Make sure you have installed the following prerequesites on your development machine:
+* Git - [Download & Install Git](https://git-scm.com/downloads). OSX and Linux machines typically have this already installed.
+* Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager. If you encounter any problems, you can also use this [GitHub Gist](https://gist.github.com/isaacs/579814) to install Node.js.
+* mySQL server - Installation docs for: [macOS](https://dev.mysql.com/doc/mysql-osx-excerpt/5.7/en/osx-installation-pkg.html), [Windows](https://dev.mysql.com/doc/refman/8.0/en/windows-installation.html), for [WSL users](https://medium.com/@harshityadav95/installing-mysql-in-ubuntu-linux-windows-subsystem-for-linux-from-scratch-d5771a4a2496)
+* Make sure mySQL server is running
 
-## Usage
+## Installation
+* Clone repository
 
-> Make sure to go through [requirements](#requirements) and [installing dependencies](#development) before using
-- Create a config folder on the root directory and in this file add an index.js
-- This config file should look like this:
+`git clone https://github.com/Eponaaaa/service-Epona-melvin.git`
 
-```javaScript
-module.exports = {
-  mySQLusername: 'root',
-  mySQLPassword: '',
-};
-```
-By default the username is root and the password is an empty string. If you do have a different setup, change this config file to match your current mySQL server setup.
+* Install dependencies
 
-- Then run this command in your terminal:
-```sh
-npm run db:seed
-```
+`npm install`
 
-## Requirements
+# Usage
+* Create index.js in the config directory
+  * In your config/index.js add the following code, with your own credentials:
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+  ```javascript
+  module.exports = {
+    mySQLPassword: `${yourPassword}`,
+    mySQLusername: `${userName}`,
+  };
+  ```
+  * Once your credentials are in this config file you can proceed to the next step.
 
-- Node 6.13.0
-- Needs mySQL on you machine
-For Windows: Here's a good [blog](https://cepa.io/2018/02/20/linuxizing-your-windows-pc-part2/) to install it
-For macOS : MySQL [Docs](https://dev.mysql.com/doc/mysql-osx-excerpt/5.7/en/osx-installation-pkg.html)
+* Run database seeding script
 
-  - If you have mySQL downloaded, start mySQL server:
-    - For linux/macOS:
-    ```sh
-    sudo service mysql start
-    ```
-      Then enter your bash password
-    - Or you can start it without sudo if it allows you too.
-    ```sh
-    service mysql start
-    ```
-    - Or: ```mysql-server start```
+  `npm run db:seed`
 
-## Development
+* Build webpack bundle
 
-### Installing Dependencies
+  `npm run build`
 
-From within the root directory:
+* Start express server
 
-```sh
-npm install -g webpack
-npm install
-```
+  `npm run start`
+
+The service will then run on http://localhost:3003. This serves up an index.html that displays the ReviewService. build.js file should also be in http://localhost:3003/build.js
+
+# Tech Framework Used
+* React
+* Express
+* mySQL
+* Jest
+* Enzyme
+* webpack
+
+# License
+The MIT License (MIT)
+
+Copyright (c) 2020 Melvin Viana
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
