@@ -31,4 +31,4 @@ const App = () => (
     <ReviewContainer renderStars={(score)=>renderStarRatings(score)} />
   </div>
 );
-ReactDOM.render(<App />, document.getElementById('service'));
+ReactDOM.render(<App />, document.getElementById('app3'));

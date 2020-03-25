@@ -62,11 +62,16 @@ class ReviewContainer extends React.Component {
 
     axios(`http://localhost:3003/listing/${reviewId}`)
       .then(({data})=>{
+        console.log(data)
         return Promise.resolve(this.setState({
           productReviews: data.productReviews,
           shopReviews: data.shopReviews,
         }));
       })
+      .then(()=>{
+        console.log(this.state)
+      })
+      .catch();
 
   }
 
@@ -78,9 +83,10 @@ class ReviewContainer extends React.Component {
       if (reviews[i] === undefined) {
         break;
       } else {
+        console.log(reviewData);
         firstFour.push(<Review
-          review={reviewData.review}
-          product={reviewData.product}
+          review={reviewData}
+          product={reviewData.Product}
           reviewer={{
             avatar: reviewData.reviewer.photoUrl,
             username: reviewData.reviewer.name,
@@ -93,7 +99,7 @@ class ReviewContainer extends React.Component {
   }
 
   getRestOfReviews(reviews) {
-    const {renderStars } = this.props;
+    const { renderStars } = this.props;
     const rest = [];
     for (let i = 4; i < 20; i += 1) {
       const reviewData = reviews[i];
@@ -129,7 +135,6 @@ class ReviewContainer extends React.Component {
 
   moreReviewsClick() {
     this.setState({ seeMoreReviewsIsClicked: true });
-    console.log('test')
   }
 
   /**
@@ -223,10 +228,12 @@ const Reviews = ({ getReviews, reviews }) => getReviews(reviews).map((data) => d
 
 ReviewContainer.propTypes = {
   renderStars: PropTypes.func,
+  reviewId: PropTypes.number,
 };
 
 ReviewContainer.defaultProps = {
   renderStars: () => null,
+  reviewId: 17,
 };
 
 export default ReviewContainer;
