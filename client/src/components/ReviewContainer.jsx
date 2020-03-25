@@ -44,6 +44,8 @@ class ReviewContainer extends React.Component {
     this.getFirstFourReviews = this.getFirstFourReviews.bind(this);
     this.displayPrevImages = this.displayPrevImages.bind(this);
     this.displayNextImages = this.displayNextImages.bind(this);
+    this.moreReviewsClick = this.moreReviewsClick.bind(this);
+    this.getRestOfReviews = this.getRestOfReviews.bind(this);
   }
 
   componentDidMount() {
@@ -107,6 +109,7 @@ class ReviewContainer extends React.Component {
 
   moreReviewsClick() {
     this.setState({ seeMoreReviewsIsClicked: true });
+    console.log('test')
   }
 
   /**
@@ -178,7 +181,7 @@ class ReviewContainer extends React.Component {
         // If shopReviews is selected:
           // Render Reviews component with shopReviews
           <Reviews getReviews={this.getFirstFourReviews} reviews={shopReviews} />,
-          (shopReviews.length > 4 && !seeMoreReviewsIsClicked) ? <div className='see-more-container'><button className="more-reviews-button" type="button" onClick={() => this.moreReviewsClick()}>See More Reviews</button></div> : null,
+          (shopReviews.length > 4 && !seeMoreReviewsIsClicked) ? <div className='see-more-container'><button className="more-reviews-button" type="button" onClick={this.moreReviewsClick}>See More Reviews</button></div> : null,
           (seeMoreReviewsIsClicked)
             ? <Reviews getReviews={this.getRestOfReviews} reviews={shopReviews} /> : null,
         ]}

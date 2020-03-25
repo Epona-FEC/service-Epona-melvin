@@ -3,7 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-const Review = ({ product, review, reviewer, renderStars }) => {
+const Review = ({
+  product, review, reviewer, renderStars,
+}) => {
   const { name, id } = product;
   const { avatar, username } = reviewer;
   const { date, score, body } = review;
