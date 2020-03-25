@@ -39,26 +39,30 @@ app.use('/listing/:id', (req, res) => {
         },
       } = data;
       apiData = { productData, shopData: Shop.dataValues };
+
       return productReviews
         .map(({ dataValues: { Reviewer: reviewerData, ...product } }) => ({
           ...product,
+          Product: apiData.productData,
           reviewer: reviewerData.dataValues,
         }));
     })
     .then((productReviews) => {
+      // apiData.productData.productReviews = productReviews;
       apiData.productReviews = productReviews;
       return Review.findAll({
         where: { ShopId: apiData.productData.ShopId },
-        include: [{ model: Reviewer }],
+        include: [{ model: Reviewer }, { model: Product }],
       });
     })
-    .then((shopReviews) => Promise.resolve(shopReviews.map(({
+    .then((shopReviews) => {
+      return Promise.resolve(shopReviews.map(({
       dataValues:
       { Reviewer: reviewerData, ...shop },
     }) => ({ ...shop, reviewer: reviewerData.dataValues })))
       .then((shopReviewData) => {
         apiData = { ...apiData, shopReviews: shopReviewData };
-      }))
+      })})
     .then(() => {
       res.status(200);
       res.send(apiData);
