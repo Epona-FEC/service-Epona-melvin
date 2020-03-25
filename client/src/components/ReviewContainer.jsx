@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 
 import sampleData from '../../sampleData';
 
-import ReviewPhotos from './ReviewPhotos.jsx';
+import HalfStar from './HalfStar.jsx';
+import EmptyStar from './EmptyStar.jsx';
+import FullStar from './FullStar.jsx';
 import ImageCarousel from './ImageCarousel.jsx';
 import Review from './Review.jsx';
 
@@ -52,11 +54,12 @@ class ReviewContainer extends React.Component {
     const { reviewPhotos } = this.state;
     // Maxwidth is 810px and 16px margin
     const carouselWidth = Math.ceil(reviewPhotos.length / 4) * 840;
-    console.log(carouselWidth);
     this.setState({ carouselWidth });
   }
 
+
   getFirstFourReviews(reviews) {
+    const {renderStars} = this.props;
     const firstFour = [];
     for (let i = 0; i < 4; i += 1) {
       const reviewData = reviews[i];
@@ -67,6 +70,7 @@ class ReviewContainer extends React.Component {
           review={reviewData.review}
           product={reviewData.product}
           reviewer={reviewData.reviewer}
+          renderStars={renderStars}
         />);
       }
     }
@@ -74,6 +78,7 @@ class ReviewContainer extends React.Component {
   }
 
   getRestOfReviews(reviews) {
+    const {renderStars} = this.props;
     const rest = [];
     for (let i = 4; i < 20; i += 1) {
       const reviewData = reviews[i];
@@ -84,24 +89,11 @@ class ReviewContainer extends React.Component {
           review={reviewData.review}
           product={reviewData.product}
           reviewer={reviewData.reviewer}
+          renderStars={renderStars}
         />);
       }
     }
     return rest;
-  }
-
-  /**
-   * Gets the four photos from reviewPhotos state array
-   * @param {integer} index The starting position where iterating through the reviewPhotos
-   *
-   */
-  getFourPhotos(index) {
-    const photos = [];
-    const { reviewPhotos } = this.state;
-    for (let i = index; i < index + 4; i += 1) {
-      photos.push(reviewPhotos[i]);
-    }
-    return photos;
   }
 
   /**
@@ -150,6 +142,23 @@ class ReviewContainer extends React.Component {
     }));
   }
 
+  renderStarRatings(score) {
+    const stars = [];
+    let currentScore = score;
+    for (let i = 0; i < 5; i += 1) {
+      if (Math.sign(currentScore) === 1 && currentScore >= 1) {
+        stars.push(<span><FullStar /></span>);
+      } else if (currentScore <= 0) {
+        stars.push(<span><EmptyStar /></span>);
+      } else if (currentScore < 1 && !Number.isInteger(currentScore - 1) && currentScore > 0) {
+        stars.push(<span><HalfStar /></span>);
+        currentScore -= currentScore;
+      }
+      currentScore -= 1;
+    }
+    return stars;
+  }
+
   render() {
     const { productReviewTotal, shopReviewTotal } = this.props;
     const {
@@ -188,7 +197,7 @@ class ReviewContainer extends React.Component {
             ? <Reviews getReviews={this.getRestOfReviews} reviews={productReviews} /> : null,
         ] : [
         // If shopReviews is selected:
-
+          // Render Reviews component with shopReviews
           <Reviews getReviews={this.getFirstFourReviews} reviews={shopReviews} />,
           (shopReviews.length > 4 && !seeMoreReviewsIsClicked) ? <div className='see-more-container'><button className="more-reviews-button" type="button" onClick={() => this.moreReviewsClick()}>See More Reviews</button></div> : null,
           (seeMoreReviewsIsClicked)

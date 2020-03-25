@@ -22,7 +22,7 @@ const Review = ({ product, review, reviewer, renderStars }) => {
       <div className='review-body'>
         <div className='review-data'>
           <div className='review-score'>
-            { score }
+            { renderStars(score) }
           </div>
           <span className='review-text'>{body}</span>
         </div>
@@ -58,7 +58,7 @@ Review.propTypes = {
     avatar: PropTypes.string,
     username: PropTypes.string,
   }),
-  renderStars: PropTypes.function
+  renderStars: PropTypes.func,
 };
 
 Review.defaultProps = {
@@ -77,6 +77,7 @@ Review.defaultProps = {
     avatar: 'http://www.gravatar.com/avatar/?d=identicon',
     username: 'Melvin',
   },
+  renderStars: () => null,
 
 };
 

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ImageCarousel = ({ photos, slideInNextImages, slideInPrevImages, styles }) => (
+const ImageCarousel = ({
+  photos, slideInNextImages, slideInPrevImages, styles,
+}) => (
   <div className='carousel-container'>
     <button
       type='button'
@@ -17,7 +19,6 @@ const ImageCarousel = ({ photos, slideInNextImages, slideInPrevImages, styles })
     >
       &gt;
     </button>
-
     <div
       className='carousel-slide'
       style={styles}
