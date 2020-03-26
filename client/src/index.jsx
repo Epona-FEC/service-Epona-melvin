@@ -39,5 +39,5 @@ ReviewService.defaultProps = {
   serviceId: 4,
 };
 
-const { serviceId } = window;
-ReactDOM.render(<ReviewService serviceId={serviceId} />, document.getElementById('app3'));
+const { productId } = window;
+ReactDOM.render(<ReviewService serviceId={productId} />, document.getElementById('app3'));
