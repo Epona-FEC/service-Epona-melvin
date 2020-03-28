@@ -40,8 +40,8 @@ Make sure you have installed the following prerequesites on your development mac
 
   ```javascript
   module.exports = {
-    mySQLPassword: `${yourPassword}`,
-    mySQLusername: `${userName}`,
+    mySQLPassword: `yourPassword`,
+    mySQLusername: `userName`,
   };
   ```
   * Once your credentials are in this config file you can proceed to the next step.
