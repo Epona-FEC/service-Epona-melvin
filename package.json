@@ -9,7 +9,7 @@
   "scripts": {
     "db:seed": "node ./db/seed.js",
     "test": "jest",
-    "build": "webpack-cli",
+    "build": "webpack",
     "start": "node server/index.js"
   },
   "dependencies": {
@@ -17,9 +17,12 @@
     "axios": "^0.19.2",
     "cors": "^2.8.5",
     "css-loader": "^3.4.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "jest-fetch-mock": "^3.0.3",
     "moment": "^2.24.0",
     "mysql2": "^2.1.0",
     "path": "^0.12.7",
@@ -38,8 +41,6 @@
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.19.0",
     "css-loader": "^3.4.2",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
