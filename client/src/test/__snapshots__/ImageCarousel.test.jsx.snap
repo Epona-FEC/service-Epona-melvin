@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageCarousel Should shallow 1`] = `
+<div
+  className="carousel-container"
+>
+  <button
+    className="review-prev-button"
+    onClick={[Function]}
+    type="button"
+  >
+    &lt;
+  </button>
+  <button
+    className="review-next-button"
+    onClick={[Function]}
+    type="button"
+  >
+    &gt;
+  </button>
+  <div
+    className="carousel-slide"
+    style={
+      Object {
+        "transform": "translateX(0)",
+      }
+    }
+  >
+    <img
+      alt="Purchase of a customer"
+      className="review-carousel-photo"
+      src="https://source.unsplash.com/random/200x200"
+    />
+    <img
+      alt="Purchase of a customer"
+      className="review-carousel-photo"
+      src="https://source.unsplash.com/random/200x200"
+    />
+  </div>
+</div>
+`;

@@ -18,30 +18,23 @@ describe('Review', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it(' has default props', () => {
-    const objData = {
-      product: {
-        name: 'Test Data',
-        id: 1,
-        photoUrl: 'https://picsum.photos/id/237/200/300',
-      },
-      review: {
-        date: new Date('Tue Mar 17 2020 16:08:19 GMT-0700 (Pacific Daylight Time)'),
-        score: 5,
-        body: 'This a test',
-        photoUrl: 'https://picsum.photos/id/237/200/300',
-      },
-      reviewer: {
-        avatar: 'http://www.gravatar.com/avatar/?d=identicon',
-        username: 'Melvin',
-      },
-    };
+  it('renderStars should return score', () => {
+    const getScore = (score) => score;
+    wrapper.setProps({ renderStars: getScore });
+    const scoreProp = wrapper.props('reviewScore').score;
+    const defaultScore = getScore(scoreProp);
+    expect(defaultScore).toBe(scoreProp);
+  });
 
-    expect(wrapper.find('.reviewer-name').props().children).toEqual('Melvin');
-    expect(wrapper.find('.review-score').props().children).toEqual(objData.review.score);
-    expect(wrapper.find('.review-date').props().children).toEqual(objData.review.date.toString());
-    expect(wrapper.find('.product-icon').props().src).toEqual(objData.product.photoUrl);
-    expect(wrapper.find('.review-product-data a').props().href).toEqual('/listing/1');
-    expect(wrapper.find('.review-product-data a').props().children).toEqual('A Cool Product');
+  it('renderStars function should return array of 5 children review-score', () => {
+    const renderFiveSpans = () => {
+      const arr = [];
+      for (let i = 0; i < 5; i += 1) {
+        arr.push(<span>i</span>);
+      }
+      return arr;
+    };
+    wrapper.setProps({ renderStars: renderFiveSpans });
+    expect(wrapper.find('.review-score').props().children).toHaveLength(5);
   });
 });

@@ -1,55 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Review Should shallow 1`] = `
-<div>
-  <img
-    alt="Melvin's avatar"
-    src="http://www.gravatar.com/avatar/?d=identicon"
-  />
-  <a
-    className="reviewer-name"
-    href="/users/Melvin"
-  >
-    Melvin
-  </a>
-  <em
-    className="review-date"
-  >
-    Tue Mar 17 2020 16:08:19 GMT-0700 (Pacific Daylight Time)
-  </em>
+<div
+  className="review"
+>
   <div
-    className="review-score"
+    className="review-info"
   >
-    5
+    <img
+      alt="Melvin's avatar"
+      className="avatar"
+      src="http://www.gravatar.com/avatar/?d=identicon"
+    />
+    <a
+      className="reviewer-name review-link"
+      href="/users/Melvin"
+    >
+      Melvin
+    </a>
+    <em
+      className="review-date"
+    >
+      Mar 17, 2020
+    </em>
   </div>
   <div
     className="review-body"
   >
-    This a test
-    <div>
-      <img
-        alt="Melvin added a photo of their purchase"
-        src="https://picsum.photos/id/237/200/300"
+    <div
+      className="review-data"
+    >
+      <div
+        className="review-score"
       />
+      <span
+        className="review-text"
+      >
+        This a test
+      </span>
     </div>
-  </div>
-  <div>
-    <span>
-      Purchased item:
-    </span>
+    <img
+      alt="Melvin added a photo of their purchase"
+      className="review-photo"
+      src="https://picsum.photos/id/237/200/300"
+    />
     <div
       className="review-product-data"
     >
-      <img
-        alt="A Cool Product"
-        className="product-icon"
-        src="https://picsum.photos/id/237/200/300"
-      />
-      <a
-        href="/listing/1"
-      >
-        A Cool Product
-      </a>
+      <span>
+        Purchased item:
+      </span>
+      <div>
+        <img
+          alt="A Cool Product"
+          className="product-icon"
+          src="https://picsum.photos/id/237/200/300"
+        />
+        <a
+          className="review-link"
+          href="/listing/1"
+        >
+          A Cool Product
+        </a>
+      </div>
     </div>
   </div>
 </div>

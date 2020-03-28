@@ -18,8 +18,9 @@ describe('ProductStats', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it(' has default props, inserted in correct locations', () => {
-    expect(wrapper.find('.shop-rating-picture').props().children[1]).toBe(5);
-    expect(wrapper.find('.total-shop-reviews').props().children[1]).toBe(323);
+  it('renderStars when function is called, should manipulate reviewScore prop', () => {
+    const addOne = (val) => val + 1; // Default reviewScore is 5.
+    wrapper.setProps({ renderStars: addOne });
+    expect(wrapper.find('.shop-rating-picture').props().children[1].props.children).toBe(6);
   });
 });

@@ -3,19 +3,18 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
-import ReviewContainer from '../components/ReviewContainer.jsx';
+import FullStar from '../components/FullStar.jsx';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('ReviewContainer', () => {
+describe('FullStar', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<ReviewContainer />);
+    wrapper = shallow(<FullStar />);
   });
 
-  it('Should shallow, intial sampledata', () => {
+  it('Should shallow', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
-
 });

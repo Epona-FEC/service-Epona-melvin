@@ -15,9 +15,9 @@ class ReviewContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productReviews: sampleData,
+      productReviews: {},
       seeMoreReviewsIsClicked: false,
-      shopReviews: [1, 2, 3, 4, 5, 7, 8, 20],
+      shopReviews: [],
       productReviewsSelected: true,
       reviewPhotos: [
         {
@@ -46,6 +46,7 @@ class ReviewContainer extends React.Component {
       shopAvgScore: 0,
       carouselTransform: 0,
       carouselWidth: null,
+      loading: true,
     };
     this.getFirstFourReviews = this.getFirstFourReviews.bind(this);
     this.displayPrevImages = this.displayPrevImages.bind(this);
@@ -88,6 +89,7 @@ class ReviewContainer extends React.Component {
           shopAvgScore: totalShopScore / state.shopReviews.length,
         };
       })))
+      .then(()=>this.setState({loading:false}))
       .catch((err) => {
         console.error(err);
       });
@@ -101,8 +103,9 @@ class ReviewContainer extends React.Component {
       if (reviews[i] === undefined) {
         break;
       } else {
+        console.log(reviewData);
         firstFour.push(<Review
-          review={reviewData}
+          review={{body: reviewData.body, photoUrl: reviewData.ReviewPhoto.url, score: reviewData.score, date: reviewData.date }}
           product={reviewData.Product}
           reviewer={{
             avatar: reviewData.reviewer.photoUrl,
@@ -186,12 +189,12 @@ class ReviewContainer extends React.Component {
   render() {
     const { renderStars } = this.props;
     const {
-      productReviewTotal, shopReviewTotal,
+      productReviewTotal, shopReviewTotal, loading,
       productReviews, shopReviews, productReviewsSelected,
       seeMoreReviewsIsClicked, reviewPhotos, carouselTransform, shopAvgScore,
     } = this.state;
 
-    return (
+    return (loading)? <div></div>:(
       <div className='review-container'>
         <ProductStats renderStars={renderStars} totalShopReviews={shopReviewTotal} reviewScore={ shopAvgScore } />
         <div className="review-tabs">

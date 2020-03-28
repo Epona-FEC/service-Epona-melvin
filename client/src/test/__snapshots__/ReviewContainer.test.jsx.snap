@@ -4,128 +4,174 @@ exports[`ReviewContainer Should shallow, intial sampledata 1`] = `
 <div
   className="review-container"
 >
+  <ProductStats
+    renderStars={[Function]}
+    reviewScore={0}
+    totalShopReviews={50}
+  />
   <div
     className="review-tabs"
   >
     <button
-      className="product-review-button"
+      className="review-button active-button"
       onClick={[Function]}
       type="button"
     >
       Reviews for this item
-      <span>
-         
+      <span
+        className="review-data"
+      >
         25
       </span>
     </button>
     <button
-      className="shop-review-button"
+      className="review-button non-active-button"
       onClick={[Function]}
       type="button"
     >
       Reviews for this shop
-      <span>
+      <span
+        className="review-data"
+      >
         50
       </span>
     </button>
   </div>
-  <Review
-    product={
-      Object {
-        "id": 1,
-        "name": "Product #1",
-        "photoUrl": "https://loremflickr.com/50/50",
-      }
-    }
-    review={
-      Object {
-        "body": "This a test",
-        "date": 2020-03-17T23:08:19.000Z,
-        "photoUrl": "https://source.unsplash.com/random/200x200",
-        "score": 5,
-      }
-    }
-    reviewer={
-      Object {
-        "avatar": "https://i.pravatar.cc/50",
-        "username": "Albert",
-      }
+  <Reviews
+    getReviews={[Function]}
+    reviews={
+      Array [
+        Object {
+          "product": Object {
+            "id": 1,
+            "name": "Product #1",
+            "photoUrl": "https://loremflickr.com/50/50",
+          },
+          "review": Object {
+            "body": "This a test",
+            "date": 2020-03-17T23:08:19.000Z,
+            "photoUrl": "https://source.unsplash.com/random/200x200",
+            "score": 5,
+          },
+          "reviewer": Object {
+            "avatar": "https://i.pravatar.cc/50",
+            "username": "Albert",
+          },
+        },
+        Object {
+          "product": Object {
+            "id": 2,
+            "name": "Product #2",
+            "photoUrl": "https://loremflickr.com/50/50",
+          },
+          "review": Object {
+            "body": "This a test",
+            "date": 2020-03-17T23:08:19.000Z,
+            "photoUrl": "https://source.unsplash.com/random/200x200",
+            "score": 5,
+          },
+          "reviewer": Object {
+            "avatar": "https://i.pravatar.cc/50",
+            "username": "Joe",
+          },
+        },
+        Object {
+          "product": Object {
+            "id": 3,
+            "name": "Product #3",
+            "photoUrl": "https://loremflickr.com/50/50",
+          },
+          "review": Object {
+            "body": "This a test",
+            "date": 2020-03-17T23:08:19.000Z,
+            "photoUrl": "https://source.unsplash.com/random/200x200",
+            "score": 5,
+          },
+          "reviewer": Object {
+            "avatar": "https://i.pravatar.cc/50",
+            "username": "Ro",
+          },
+        },
+        Object {
+          "product": Object {
+            "id": 3,
+            "name": "Product #4",
+            "photoUrl": "https://loremflickr.com/50/50",
+          },
+          "review": Object {
+            "body": "This a test",
+            "date": 2020-03-17T23:08:19.000Z,
+            "photoUrl": "https://source.unsplash.com/random/200x200",
+            "score": 5,
+          },
+          "reviewer": Object {
+            "avatar": "https://i.pravatar.cc/50",
+            "username": "Po",
+          },
+        },
+        Object {
+          "product": Object {
+            "id": 3,
+            "name": "Product #5",
+            "photoUrl": "https://loremflickr.com/50/50",
+          },
+          "review": Object {
+            "body": "This a test",
+            "date": 2020-03-17T23:08:19.000Z,
+            "photoUrl": "https://source.unsplash.com/random/200x200",
+            "score": 5,
+          },
+          "reviewer": Object {
+            "avatar": "https://i.pravatar.cc/50",
+            "username": "Ngo",
+          },
+        },
+      ]
     }
   />
-  <Review
-    product={
-      Object {
-        "id": 2,
-        "name": "Product #2",
-        "photoUrl": "https://loremflickr.com/50/50",
-      }
-    }
-    review={
-      Object {
-        "body": "This a test",
-        "date": 2020-03-17T23:08:19.000Z,
-        "photoUrl": "https://source.unsplash.com/random/200x200",
-        "score": 5,
-      }
-    }
-    reviewer={
-      Object {
-        "avatar": "https://i.pravatar.cc/50",
-        "username": "Joe",
-      }
-    }
-  />
-  <Review
-    product={
-      Object {
-        "id": 3,
-        "name": "Product #3",
-        "photoUrl": "https://loremflickr.com/50/50",
-      }
-    }
-    review={
-      Object {
-        "body": "This a test",
-        "date": 2020-03-17T23:08:19.000Z,
-        "photoUrl": "https://source.unsplash.com/random/200x200",
-        "score": 5,
-      }
-    }
-    reviewer={
-      Object {
-        "avatar": "https://i.pravatar.cc/50",
-        "username": "Ro",
-      }
-    }
-  />
-  <Review
-    product={
-      Object {
-        "id": 3,
-        "name": "Product #4",
-        "photoUrl": "https://loremflickr.com/50/50",
-      }
-    }
-    review={
-      Object {
-        "body": "This a test",
-        "date": 2020-03-17T23:08:19.000Z,
-        "photoUrl": "https://source.unsplash.com/random/200x200",
-        "score": 5,
-      }
-    }
-    reviewer={
-      Object {
-        "avatar": "https://i.pravatar.cc/50",
-        "username": "Po",
-      }
-    }
-  />
-  <button
-    className="more-reviews-button"
-    type="button"
+  <div
+    className="see-more-container"
   >
-    See More
-  </button>
+    <button
+      className="more-reviews-button"
+      onClick={[Function]}
+      type="button"
+    >
+      See More Reviews
+    </button>
+  </div>
+  <ImageCarousel
+    photos={
+      Array [
+        Object {
+          "description": "Purchase of a customer",
+          "url": "https://source.unsplash.com/random/180x180",
+        },
+        Object {
+          "description": "Purchase of a customer",
+          "url": "https://source.unsplash.com/random/180x180",
+        },
+        Object {
+          "description": "Purchase of a customer",
+          "url": "https://source.unsplash.com/random/180x180",
+        },
+        Object {
+          "description": "Purchase of a customer",
+          "url": "https://source.unsplash.com/random/180x180",
+        },
+        Object {
+          "description": "Purchase of a customer",
+          "url": "https://source.unsplash.com/random/180x180",
+        },
+      ]
+    }
+    slideInNextImages={[Function]}
+    slideInPrevImages={[Function]}
+    styles={
+      Object {
+        "transform": "translateX(0px)",
+      }
+    }
+  />
 </div>
 `;
