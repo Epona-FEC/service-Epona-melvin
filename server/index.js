@@ -11,7 +11,7 @@ const {
 } = require('../db');
 
 const app = express();
-const PORT = 3003;
+const PORT = process.env.PORT || 3003;
 
 app.use(cors());
 // Access components in build.js
