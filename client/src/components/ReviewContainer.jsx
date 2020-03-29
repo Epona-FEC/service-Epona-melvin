@@ -61,8 +61,7 @@ class ReviewContainer extends React.Component {
     // Maxwidth is 810px and 16px margin
     const carouselWidth = Math.ceil(reviewPhotos.length / 4) * 840;
     this.setState({ carouselWidth });
-
-    axios(`http://localhost:3003/listing/${productId}`)
+    axios(`http://ec2-54-183-28-128.us-west-1.compute.amazonaws.com:3003/listing/${productId}`)
       .then(({ data }) => Promise.resolve(this.setState({
         productReviews: data.productReviews,
         shopReviews: data.shopReviews,
