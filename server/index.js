@@ -55,12 +55,12 @@ app.use('/listing/:id', (req, res) => {
       apiData.productReviews = productReviews;
       return Review.findAll({
         where: { ShopId: apiData.productData.ShopId },
-        include: [{ model: Reviewer }, { model: Product }],
+        include: [{ model: Reviewer }, { model: Product }, { model: ReviewPhoto }],
       });
     })
     .then((shopReviews) => Promise.resolve(shopReviews.map(({
       dataValues:
-      { Reviewer: reviewerData, ...shop },
+        { Reviewer: reviewerData, ...shop },
     }) => ({ ...shop, reviewer: reviewerData.dataValues })))
       .then((shopReviewData) => {
         apiData = { ...apiData, shopReviews: shopReviewData };

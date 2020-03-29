@@ -89,7 +89,7 @@ class ReviewContainer extends React.Component {
           shopAvgScore: totalShopScore / state.shopReviews.length,
         };
       })))
-      .then(()=>this.setState({loading:false}))
+      .then(() => this.setState({ loading: false }))
       .catch((err) => {
         console.error(err);
       });
@@ -105,7 +105,9 @@ class ReviewContainer extends React.Component {
       } else {
         console.log(reviewData);
         firstFour.push(<Review
-          review={{body: reviewData.body, photoUrl: reviewData.ReviewPhoto.url, score: reviewData.score, date: reviewData.date }}
+          review={{
+            body: reviewData.body, photoUrl: reviewData.ReviewPhoto.url, score: reviewData.score, date: reviewData.date,
+          }}
           product={reviewData.Product}
           reviewer={{
             avatar: reviewData.reviewer.photoUrl,
@@ -194,9 +196,9 @@ class ReviewContainer extends React.Component {
       seeMoreReviewsIsClicked, reviewPhotos, carouselTransform, shopAvgScore,
     } = this.state;
 
-    return (loading)? <div></div>:(
+    return (loading) ? <div /> : (
       <div className='review-container'>
-        <ProductStats renderStars={renderStars} totalShopReviews={shopReviewTotal} reviewScore={ shopAvgScore } />
+        <ProductStats renderStars={renderStars} totalShopReviews={shopReviewTotal} reviewScore={shopAvgScore} />
         <div className="review-tabs">
           <button
             type="button"
