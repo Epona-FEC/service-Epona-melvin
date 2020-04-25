@@ -1,5 +1,5 @@
 # Etsy Review Service
-> Review Service for  Etsy product page
+> Review Service for Craftsy product page
 <img src="./ui.png" alt="Reviews UI" width="75%"/>
 
 # Related Projects
