@@ -23,7 +23,7 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "jest-fetch-mock": "^3.0.3",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mysql2": "^2.1.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
